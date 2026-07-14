@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Drills + Core — Croatia</title>
+</head>
+<body>
+<style>
+  :root{
+    --bg:#F7F4EE; --surface:#FFFFFF; --ink:#2A2723; --muted:#6E685E;
+    --figure:#33302B; --ghost:#C4BDB0; --accent:#D9990F; --danger:#C6503F;
+    --line:#E7E1D6; --num:#B9B1A2;
+    --sans:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono","Cascadia Code",Menlo,Consolas,monospace;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --bg:#17150F; --surface:#201D16; --ink:#F1EBDE; --muted:#A79F90;
+      --figure:#E7E0D1; --ghost:#5A5344; --accent:#F0B534; --danger:#E37A6A;
+      --line:#322E24; --num:#5C5547;
+    }
+  }
+  :root[data-theme="light"]{
+    --bg:#F7F4EE; --surface:#FFFFFF; --ink:#2A2723; --muted:#6E685E;
+    --figure:#33302B; --ghost:#C4BDB0; --accent:#D9990F; --danger:#C6503F;
+    --line:#E7E1D6; --num:#B9B1A2;
+  }
+  :root[data-theme="dark"]{
+    --bg:#17150F; --surface:#201D16; --ink:#F1EBDE; --muted:#A79F90;
+    --figure:#E7E0D1; --ghost:#5A5344; --accent:#F0B534; --danger:#E37A6A;
+    --line:#322E24; --num:#5C5547;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+    line-height:1.5;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1040px;margin:0 auto;padding:clamp(20px,4vw,44px)}
+
+  .eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--accent);margin:0 0 .5rem}
+  h1{font-size:clamp(2.6rem,9vw,4.4rem);line-height:.92;letter-spacing:-.02em;
+    font-weight:800;text-transform:uppercase;margin:0;text-wrap:balance}
+  h1 .plus{color:var(--accent)}
+  .lede{max-width:60ch;color:var(--muted);margin:1rem 0 0;font-size:1.02rem}
+
+  .legend{display:flex;flex-wrap:wrap;gap:.5rem .9rem;margin:1.4rem 0 .2rem;
+    font-family:var(--mono);font-size:.72rem;letter-spacing:.04em;color:var(--muted)}
+  .legend span{display:inline-flex;align-items:center;gap:.45rem}
+  .sw{width:22px;height:0;border-top:3px solid var(--figure)}
+  .sw.g{border-top-style:dashed;border-color:var(--ghost)}
+  .sw.a{border-color:var(--accent)}
+  .legend .x{color:var(--danger);font-weight:700}
+
+  .section-h{display:flex;align-items:baseline;justify-content:space-between;
+    gap:1rem;margin:2.6rem 0 1rem;padding-bottom:.5rem;border-bottom:2px solid var(--ink)}
+  .section-h h2{font-size:1.15rem;letter-spacing:.14em;text-transform:uppercase;
+    margin:0;font-weight:800}
+  .section-h .t{font-family:var(--mono);font-size:.74rem;letter-spacing:.12em;
+    color:var(--muted);text-transform:uppercase}
+
+  .grid{display:grid;grid-template-columns:1fr;gap:16px}
+  @media(min-width:560px){.grid{grid-template-columns:1fr 1fr}}
+  @media(min-width:900px){.grid{grid-template-columns:1fr 1fr 1fr}}
+
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;
+    padding:16px 18px 18px;display:flex;flex-direction:column;position:relative;overflow:hidden}
+  .num{position:absolute;top:10px;right:14px;font-family:var(--mono);font-weight:700;
+    font-size:1.1rem;color:var(--num)}
+  .stage{height:184px;display:flex;align-items:center;justify-content:center;
+    border-bottom:1px solid var(--line);margin:-2px -2px 12px}
+  .stage svg{width:100%;height:100%}
+  .fig{stroke:var(--figure);stroke-width:6;stroke-linecap:round;stroke-linejoin:round;fill:none}
+  .head{stroke:var(--figure);stroke-width:6;fill:none}
+  .ghost{stroke:var(--ghost);stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:3 8;fill:none}
+  .dir{stroke:var(--accent);stroke-width:6;stroke-linecap:round;stroke-linejoin:round;fill:none}
+  .dirf{fill:var(--accent)}
+  .band{stroke:var(--accent);stroke-width:5;stroke-linecap:round;fill:none}
+  .ground{stroke:var(--muted);stroke-width:3;stroke-dasharray:2 7;opacity:.7}
+  .prop{stroke:var(--muted);stroke-width:4;fill:none}
+
+  h3{margin:0;font-size:1.24rem;letter-spacing:-.01em}
+  .dose{font-family:var(--mono);font-size:.78rem;color:var(--accent);
+    margin:.3rem 0 .7rem;letter-spacing:.02em}
+  .cues{margin:0;padding-left:1.05rem;color:var(--ink);font-size:.92rem}
+  .cues li{margin:.15rem 0}
+  .avoid{color:var(--danger);font-size:.86rem;margin:.6rem 0 .9rem;display:flex;gap:.4rem}
+  .avoid b{font-weight:700}
+  .yt{margin-top:auto;display:inline-flex;align-items:center;gap:.5rem;
+    font-family:var(--mono);font-size:.76rem;color:var(--ink);text-decoration:none;
+    border:1px solid var(--line);border-radius:8px;padding:.5rem .7rem;background:transparent}
+  .yt:hover,.yt:focus-visible{border-color:var(--accent);color:var(--accent)}
+  .yt .tri{color:var(--danger)}
+  a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+  .foot{margin-top:2.6rem;border-top:1px solid var(--line);padding-top:1.3rem;
+    color:var(--muted);font-size:.9rem;display:grid;gap:.5rem;max-width:70ch}
+  .foot b{color:var(--ink)}
+</style>
+
+<div class="wrap">
+  <p class="eyebrow">Cooper block · Croatia 18–29 Jul · 6× / week</p>
+  <h1>Drills <span class="plus">+</span> Core</h1>
+  <p class="lede">Drills first while the legs are fresh, core after — about 15–20 minutes.
+    Everything here needs only your <b>bands</b>, a <b>jump rope</b>, and <b>bodyweight</b>,
+    so it all travels. Tap any move for a YouTube demo.</p>
+
+  <div class="legend">
+    <span><i class="sw"></i> body position</span>
+    <span><i class="sw g"></i> where you were</span>
+    <span><i class="sw a"></i> direction / active</span>
+    <span><i class="x">✕</i> avoid</span>
+  </div>
+
+  <div class="section-h"><h2>Drills</h2><span class="t">5–8 min · every session</span></div>
+  <div class="grid">
+
+    <article class="card"><span class="num">01</span>
+      <div class="stage"><svg viewBox="0 0 200 180" role="img" aria-label="Skipping rope, front view">
+        <ellipse class="band" cx="100" cy="98" rx="52" ry="74"/>
+        <circle class="head" cx="100" cy="30" r="13"/>
+        <line class="fig" x1="100" y1="43" x2="100" y2="94"/>
+        <polyline class="fig" points="100,56 80,74 88,94"/>
+        <polyline class="fig" points="100,56 120,74 112,94"/>
+        <polyline class="fig" points="100,94 94,126 95,154"/>
+        <polyline class="fig" points="100,94 106,126 105,154"/>
+        <line class="fig" x1="95" y1="154" x2="82" y2="156"/>
+        <line class="fig" x1="105" y1="154" x2="118" y2="156"/>
+        <line class="ground" x1="55" y1="166" x2="145" y2="166"/>
+      </svg></div>
+      <h3>Skipping rope</h3>
+      <p class="dose">2 × 60–90 s · easy bounce · ankles only</p>
+      <ul class="cues"><li>Balls of the feet, heels never touch down.</li>
+        <li>Quiet landings — barely hear yourself.</li></ul>
+      <p class="avoid"><b>✕</b> squatting and jumping high off the knees</p>
+      <a class="yt" href="https://www.youtube.com/results?search_query=jump+rope+drill+for+runners" target="_blank" rel="noopener"><span class="tri">▶</span> "jump rope drill for runners"</a>
+    </article>
+
+    <article class="card"><span class="num">02</span>
+      <div class="stage"><svg viewBox="0 0 200 180" role="img" aria-label="Pogo ankle hops, front view">
+        <path class="dir" d="M50 132 v-32 m-7 10 l7 -10 l7 10"/>
+        <path class="dir" d="M150 132 v-32 m-7 10 l7 -10 l7 10"/>
+        <circle class="head" cx="100" cy="28" r="13"/>
+        <line class="fig" x1="100" y1="41" x2="100" y2="92"/>
+        <polyline class="fig" points="100,54 80,68 92,84"/>
+        <polyline class="fig" points="100,54 120,68 108,84"/>
+        <polyline class="fig" points="100,92 96,122 96,152"/>
+        <polyline class="fig" points="100,92 104,122 104,152"/>
+        <line class="fig" x1="96" y1="152" x2="83" y2="154"/>
+        <line class="fig" x1="104" y1="152" x2="117" y2="154"/>
+        <line class="ghost" x1="86" y1="162" x2="114" y2="162"/>
+      </svg></div>
+      <h3>Pogos / ankle hops</h3>
+      <p class="dose">2 × 15 hops · minimal ground time</p>
+      <ul class="cues"><li>Legs stay long — bounce from the ankle, not the knee.</li>
+        <li>Off the ground fast, like hot pavement.</li></ul>
+      <p class="avoid"><b>✕</b> bending the knees to absorb the landing</p>
+      <a class="yt" href="https://www.youtube.com/results?search_query=pogo+hops+running+plyometric+drill" target="_blank" rel="noopener"><span class="tri">▶</span> "pogo hops plyometric drill"</a>
+    </article>
+
+    <article class="card"><span class="num">03</span>
+      <div class="stage"><svg viewBox="0 0 200 180" role="img" aria-label="A-skip, side view">
+        <path class="dir" d="M154 88 v-24 m-6 9 l6 -9 l6 9"/>
+        <circle class="head" cx="90" cy="30" r="13"/>
+        <line class="fig" x1="94" y1="44" x2="102" y2="92"/>
+        <polyline class="fig" points="102,92 110,126 116,156"/>
+        <line class="fig" x1="116" y1="156" x2="132" y2="156"/>
+        <polyline class="fig" points="102,92 134,88 128,116"/>
+        <line class="fig" x1="128" y1="116" x2="141" y2="110"/>
+        <polyline class="fig" points="98,52 120,60 133,52"/>
+        <polyline class="fig" points="98,52 80,66 72,80"/>
+        <line class="ground" x1="60" y1="160" x2="150" y2="160"/>
+      </svg></div>
+      <h3>A-skips</h3>
+      <p class="dose">2 × 20 m · rhythmic, light</p>
+      <ul class="cues"><li>Drive knee to thigh-horizontal, toe pulled up.</li>
+        <li>Strike the ground under the hip, not out front.</li></ul>
+      <p class="avoid"><b>✕</b> leaning back to get the knee higher</p>
+      <a class="yt" href="https://www.youtube.com/results?search_query=A+skip+running+drill+technique" target="_blank" rel="noopener"><span class="tri">▶</span> "A-skip running drill technique"</a>
+    </article>
+
+    <article class="card"><span class="num">04</span>
+      <div class="stage"><svg viewBox="0 0 200 180" role="img" aria-label="High-knee march, side view">
+        <circle class="head" cx="96" cy="26" r="13"/>
+        <line class="fig" x1="98" y1="39" x2="100" y2="92"/>
+        <polyline class="fig" points="100,92 100,124 100,156"/>
+        <line class="fig" x1="100" y1="156" x2="116" y2="156"/>
+        <line class="fig" x1="100" y1="156" x2="90" y2="156"/>
+        <polyline class="fig" points="100,92 130,90 126,118"/>
+        <line class="fig" x1="126" y1="118" x2="138" y2="112"/>
+        <polyline class="fig" points="98,52 120,60 133,52"/>
+        <polyline class="fig" points="98,52 80,66 72,80"/>
+        <line class="ground" x1="60" y1="160" x2="150" y2="160"/>
+      </svg></div>
+      <h3>High-knee march</h3>
+      <p class="dose">2 × 20 m · slow, controlled</p>
+      <ul class="cues"><li>Walk, don't hop — one foot always down.</li>
+        <li>Tall spine, ribs stacked over hips.</li></ul>
+      <p class="avoid"><b>✕</b> rushing it into a jog</p>
+      <a class="yt" href="https://www.youtube.com/results?search_query=high+knee+march+running+drill" target="_blank" rel="noopener"><span class="tri">▶</span> "high-knee march drill"</a>
+    </article>
+  </div>
+
+  <div class="section-h"><h2>Core</h2><span class="t">8–12 min · every session</span></div>
+  <div class="grid">
+
+    <article class="card"><span class="num">05</span>
+      <div class="stage"><svg viewBox="0 0 200 180" role="img" aria-label="Front plank, side view">
+        <path class="ghost" d="M84 118 Q122 154 164 140"/>
+        <circle class="head" cx="74" cy="112" r="11"/>
+        <line class="fig" x1="80" y1="120" x2="84" y2="118"/>
+        <line class="fig" x1="84" y1="118" x2="78" y2="144"/>
+        <line class="fig" x1="78" y1="144" x2="100" y2="144"/>
+        <polyline class="fig" points="84,118 124,130 164,140"/>
+        <line class="fig" x1="164" y1="140" x2="172" y2="132"/>
+        <line class="ground" x1="52" y1="144" x2="178" y2="144"/>
+      </svg></div>
+      <h3>Front plank</h3>
+      <p class="dose">3 × 30–45 s · one straight line</p>
+      <ul class="cues"><li>Elbows under shoulders; squeeze glutes.</li>
+        <li>Breathe normally — if you can't, shorten it.</li></ul>
+      <p class="avoid"><b>✕</b> hips sagging (dashed) or piked up high</p>
+      <a class="yt" href="https://www.youtube.com/results?search_query=front+plank+proper+form" target="_blank" rel="noopener"><span class="tri">▶</span> "front plank proper form"</a>
+    </article>
+
+    <article class="card"><span class="num">06</span>
+      <div class="stage"><svg viewBox="0 0 200 180" role="img" aria-label="Side plank, side view">
+        <path class="dir" d="M86 118 L92 82"/>
+        <circle class="head" cx="74" cy="114" r="11"/>
+        <line class="fig" x1="74" y1="146" x2="94" y2="146"/>
+        <line class="fig" x1="74" y1="146" x2="84" y2="120"/>
+        <polyline class="fig" points="84,120 124,134 164,150"/>
+        <line class="fig" x1="164" y1="150" x2="176" y2="152"/>
+        <line class="ground" x1="52" y1="152" x2="180" y2="152"/>
+      </svg></div>
+      <h3>Side plank</h3>
+      <p class="dose">2 × 20–30 s each side</p>
+      <ul class="cues"><li>Elbow under shoulder; push the bottom hip up.</li>
+        <li>Top arm straight up, chest open.</li></ul>
+      <p class="avoid"><b>✕</b> bottom hip drifting toward the ground</p>
+      <a class="yt" href="https://www.youtube.com/results?search_query=side+plank+proper+form" target="_blank" rel="noopener"><span class="tri">▶</span> "side plank proper form"</a>
+    </article>
+
+    <article class="card"><span class="num">07</span>
+      <div class="stage"><svg viewBox="0 0 200 180" role="img" aria-label="Dead bug, lying on back">
+        <line class="ground" x1="40" y1="140" x2="134" y2="140"/>
+        <circle class="head" cx="46" cy="124" r="11"/>
+        <line class="fig" x1="57" y1="128" x2="116" y2="132"/>
+        <polyline class="fig" points="66,127 66,104 63,88"/>
+        <line class="dir" x1="66" y1="127" x2="30" y2="122"/>
+        <polyline class="fig" points="116,132 122,102 146,100"/>
+        <line class="fig" x1="146" y1="100" x2="150" y2="88"/>
+        <polyline class="dir" points="116,132 148,126 176,124"/>
+        <line class="dir" x1="176" y1="124" x2="186" y2="120"/>
+      </svg></div>
+      <h3>Dead bug</h3>
+      <p class="dose">2 × 8–10 each side · slow</p>
+      <ul class="cues"><li>Extend opposite arm + leg out low, then return.</li>
+        <li>Exhale as you extend; low back stays flat.</li></ul>
+      <p class="avoid"><b>✕</b> low back arching off the floor</p>
+      <a class="yt" href="https://www.youtube.com/results?search_query=dead+bug+exercise+proper+form" target="_blank" rel="noopener"><span class="tri">▶</span> "dead bug exercise form"</a>
+    </article>
+
+    <article class="card"><span class="num">08</span>
+      <div class="stage"><svg viewBox="0 0 200 180" role="img" aria-label="Bird dog, on hands and knees">
+        <line class="ground" x1="30" y1="152" x2="166" y2="152"/>
+        <line class="fig" x1="138" y1="116" x2="84" y2="116"/>
+        <circle class="head" cx="152" cy="112" r="11"/>
+        <line class="fig" x1="138" y1="116" x2="148" y2="152"/>
+        <line class="fig" x1="84" y1="116" x2="78" y2="152"/>
+        <line class="fig" x1="78" y1="152" x2="88" y2="152"/>
+        <polyline class="dir" points="138,116 160,108 180,102"/>
+        <polyline class="dir" points="84,116 60,110 40,104"/>
+        <line class="dir" x1="40" y1="104" x2="30" y2="108"/>
+      </svg></div>
+      <h3>Bird dog</h3>
+      <p class="dose">2 × 8–10 each side · pause 2 s</p>
+      <ul class="cues"><li>Reach opposite arm + leg to horizontal, no higher.</li>
+        <li>Hips square — glass of water on your back.</li></ul>
+      <p class="avoid"><b>✕</b> twisting the hips open to lift the leg</p>
+      <a class="yt" href="https://www.youtube.com/results?search_query=bird+dog+exercise+proper+form" target="_blank" rel="noopener"><span class="tri">▶</span> "bird dog exercise form"</a>
+    </article>
+
+    <article class="card"><span class="num">09</span>
+      <div class="stage"><svg viewBox="0 0 200 180" role="img" aria-label="Glute bridge, side view">
+        <path class="dir" d="M104 94 v-24 m-6 9 l6 -9 l6 9"/>
+        <line class="ground" x1="36" y1="150" x2="152" y2="150"/>
+        <circle class="head" cx="40" cy="138" r="11"/>
+        <line class="fig" x1="52" y1="142" x2="104" y2="110"/>
+        <polyline class="fig" points="104,110 126,112 130,150"/>
+        <line class="fig" x1="130" y1="150" x2="146" y2="150"/>
+        <line class="fig" x1="52" y1="142" x2="38" y2="146"/>
+      </svg></div>
+      <h3>Glute bridge</h3>
+      <p class="dose">2 × 12–15 · or single-leg / banded</p>
+      <ul class="cues"><li>Heels close to glutes; drive through the heels.</li>
+        <li>Squeeze glutes at the top, hold 2 s.</li></ul>
+      <p class="avoid"><b>✕</b> arching the lower back at the top</p>
+      <a class="yt" href="https://www.youtube.com/results?search_query=glute+bridge+exercise+form" target="_blank" rel="noopener"><span class="tri">▶</span> "glute bridge exercise form"</a>
+    </article>
+  </div>
+
+  <div class="section-h"><h2>Hips + Adductors</h2><span class="t">protects the knee · with bands</span></div>
+  <div class="grid">
+
+    <article class="card"><span class="num">10</span>
+      <div class="stage"><svg viewBox="0 0 200 180" role="img" aria-label="Lateral band walk, front view half squat">
+        <path class="dir" d="M150 156 h26 m-10 -7 l10 7 l-10 7"/>
+        <circle class="head" cx="100" cy="32" r="13"/>
+        <line class="fig" x1="99" y1="45" x2="101" y2="92"/>
+        <polyline class="fig" points="100,56 84,66 96,74"/>
+        <polyline class="fig" points="100,56 116,66 104,74"/>
+        <polyline class="fig" points="101,92 74,122 70,152"/>
+        <polyline class="fig" points="101,92 128,122 132,152"/>
+        <line class="fig" x1="70" y1="152" x2="56" y2="154"/>
+        <line class="fig" x1="132" y1="152" x2="146" y2="154"/>
+        <line class="band" x1="80" y1="122" x2="122" y2="122"/>
+        <line class="ground" x1="48" y1="160" x2="152" y2="160"/>
+      </svg></div>
+      <h3>Lateral band walks</h3>
+      <p class="dose">2 × 10 steps each way · band at knees</p>
+      <ul class="cues"><li>Athletic half-squat; stay low the whole set.</li>
+        <li>Small controlled steps — keep band tension.</li></ul>
+      <p class="avoid"><b>✕</b> standing tall and letting the knees cave</p>
+      <a class="yt" href="https://www.youtube.com/results?search_query=lateral+band+walk+glute+exercise" target="_blank" rel="noopener"><span class="tri">▶</span> "lateral band walk"</a>
+    </article>
+
+    <article class="card"><span class="num">11</span>
+      <div class="stage"><svg viewBox="0 0 200 180" role="img" aria-label="Clamshell, side lying, top knee opening">
+        <path class="dir" d="M132 108 a22 22 0 0 0 4 -26"/>
+        <path class="dirf" d="M133 82 l-6 4 l9 4 z"/>
+        <line class="ground" x1="38" y1="158" x2="150" y2="158"/>
+        <circle class="head" cx="44" cy="120" r="11"/>
+        <line class="fig" x1="56" y1="124" x2="102" y2="132"/>
+        <line class="fig" x1="56" y1="124" x2="42" y2="132"/>
+        <polyline class="fig" points="102,132 130,142 116,158"/>
+        <polyline class="fig" points="102,132 124,118 116,158"/>
+        <line class="band" x1="124" y1="118" x2="130" y2="142"/>
+      </svg></div>
+      <h3>Clamshells</h3>
+      <p class="dose">2 × 12 each side · band above knees</p>
+      <ul class="cues"><li>Feet together, open the top knee like a clam.</li>
+        <li>Keep hips stacked — don't roll back.</li></ul>
+      <p class="avoid"><b>✕</b> rocking the hips back to open wider</p>
+      <a class="yt" href="https://www.youtube.com/results?search_query=clamshell+exercise+with+band" target="_blank" rel="noopener"><span class="tri">▶</span> "clamshell exercise with band"</a>
+    </article>
+
+    <article class="card"><span class="num">12</span>
+      <div class="stage"><svg viewBox="0 0 200 180" role="img" aria-label="Copenhagen plank, side view, knee on support">
+        <path class="dir" d="M112 100 v-24 m-6 9 l6 -9 l6 9"/>
+        <rect class="prop" x="150" y="128" width="38" height="26"/>
+        <circle class="head" cx="70" cy="120" r="11"/>
+        <line class="fig" x1="66" y1="154" x2="86" y2="154"/>
+        <line class="fig" x1="66" y1="154" x2="78" y2="128"/>
+        <polyline class="fig" points="78,128 146,134 160,128"/>
+        <polyline class="fig" points="146,134 142,152 140,168"/>
+        <line class="ground" x1="52" y1="154" x2="120" y2="154"/>
+      </svg></div>
+      <h3>Copenhagen plank</h3>
+      <p class="dose">2 × 15–20 s each side · short lever</p>
+      <ul class="cues"><li>Top <b>knee</b> on a chair / low wall / sun-lounger.</li>
+        <li>Squeeze the surface, lift hips to a straight line.</li>
+        <li>Build <b>+5 s a week</b> — never rush this one.</li></ul>
+      <p class="avoid"><b>✕</b> ankle (not knee) on the surface = groin strain</p>
+      <a class="yt" href="https://www.youtube.com/results?search_query=copenhagen+plank+adductor+exercise+beginner" target="_blank" rel="noopener"><span class="tri">▶</span> "copenhagen plank beginner"</a>
+    </article>
+  </div>
+
+  <div class="foot">
+    <p><b>Order:</b> drills first while the legs are fresh, then core, then the banded hip work. 6×/week, one day off.</p>
+    <p><b>Croatia:</b> it's your recovery week — keep the drills light. Do it early or in shade (heat). The Copenhagen surface can be a low wall, bed edge, rock, or sun-lounger.</p>
+    <p><b>Safety:</b> adductors strain easily — any sharp groin or Achilles pain means stop the session, not push through it.</p>
+  </div>
+</div>
+
+</body>
+</html>

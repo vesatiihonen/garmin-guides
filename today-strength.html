@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Today's Strength — pre-Croatia</title>
+</head>
+<body>
+<style>
+  :root{
+    --bg:#F7F4EE; --surface:#FFFFFF; --ink:#2A2723; --muted:#6E685E;
+    --figure:#33302B; --ghost:#C4BDB0; --accent:#D9990F; --danger:#C6503F;
+    --line:#E7E1D6; --num:#B9B1A2;
+    --sans:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono","Cascadia Code",Menlo,Consolas,monospace;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{--bg:#17150F; --surface:#201D16; --ink:#F1EBDE; --muted:#A79F90;
+      --figure:#E7E0D1; --ghost:#5A5344; --accent:#F0B534; --danger:#E37A6A;
+      --line:#322E24; --num:#5C5547;}
+  }
+  :root[data-theme="light"]{--bg:#F7F4EE; --surface:#FFFFFF; --ink:#2A2723; --muted:#6E685E;
+    --figure:#33302B; --ghost:#C4BDB0; --accent:#D9990F; --danger:#C6503F; --line:#E7E1D6; --num:#B9B1A2;}
+  :root[data-theme="dark"]{--bg:#17150F; --surface:#201D16; --ink:#F1EBDE; --muted:#A79F90;
+    --figure:#E7E0D1; --ghost:#5A5344; --accent:#F0B534; --danger:#E37A6A; --line:#322E24; --num:#5C5547;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.5;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1040px;margin:0 auto;padding:clamp(20px,4vw,44px)}
+  .eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin:0 0 .5rem}
+  h1{font-size:clamp(2.4rem,8vw,4rem);line-height:.94;letter-spacing:-.02em;font-weight:800;text-transform:uppercase;margin:0;text-wrap:balance}
+  h1 .plus{color:var(--accent)}
+  .lede{max-width:62ch;color:var(--muted);margin:1rem 0 0;font-size:1.02rem}
+  .callout{margin:1.1rem 0 0;padding:.7rem 1rem;border-left:4px solid var(--accent);background:color-mix(in srgb,var(--accent) 10%,transparent);
+    font-size:.95rem;border-radius:0 8px 8px 0}
+  .callout b{color:var(--ink)}
+  .section-h{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;margin:2.4rem 0 1rem;padding-bottom:.5rem;border-bottom:2px solid var(--ink)}
+  .section-h h2{font-size:1.1rem;letter-spacing:.14em;text-transform:uppercase;margin:0;font-weight:800}
+  .section-h .t{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;color:var(--muted);text-transform:uppercase}
+  .grid{display:grid;grid-template-columns:1fr;gap:16px}
+  @media(min-width:560px){.grid{grid-template-columns:1fr 1fr}}
+  @media(min-width:900px){.grid{grid-template-columns:1fr 1fr 1fr}}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px 18px;display:flex;flex-direction:column;position:relative;overflow:hidden}
+  .num{position:absolute;top:10px;right:14px;font-family:var(--mono);font-weight:700;font-size:1.1rem;color:var(--num)}
+  .stage{height:180px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);margin:-2px -2px 12px}
+  .stage svg{width:100%;height:100%}
+  .fig{stroke:var(--figure);stroke-width:6;stroke-linecap:round;stroke-linejoin:round;fill:none}
+  .head{stroke:var(--figure);stroke-width:6;fill:none}
+  .dir{stroke:var(--accent);stroke-width:6;stroke-linecap:round;stroke-linejoin:round;fill:none}
+  .dirf{fill:var(--accent)}
+  .eqf{fill:var(--figure)}
+  .ballf{fill:var(--accent)}
+  .prop{stroke:var(--muted);stroke-width:5;fill:none;stroke-linecap:round}
+  .ground{stroke:var(--muted);stroke-width:3;stroke-dasharray:2 7;opacity:.7}
+  h3{margin:0;font-size:1.2rem;letter-spacing:-.01em}
+  .dose{font-family:var(--mono);font-size:.77rem;color:var(--accent);margin:.3rem 0 .3rem;letter-spacing:.01em}
+  .gear{font-family:var(--mono);font-size:.7rem;color:var(--muted);margin:0 0 .6rem}
+  .cues{margin:0;padding-left:1.05rem;color:var(--ink);font-size:.9rem}
+  .cues li{margin:.15rem 0}
+  .yt{margin-top:auto;display:inline-flex;align-items:center;gap:.5rem;font-family:var(--mono);font-size:.75rem;color:var(--ink);text-decoration:none;border:1px solid var(--line);border-radius:8px;padding:.5rem .7rem;margin-top:.8rem}
+  .yt:hover,.yt:focus-visible{border-color:var(--accent);color:var(--accent)}
+  .yt .tri{color:var(--danger)}
+  a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .foot{margin-top:2.4rem;border-top:1px solid var(--line);padding-top:1.2rem;color:var(--muted);font-size:.9rem;display:grid;gap:.5rem;max-width:70ch}
+  .foot b{color:var(--ink)}
+</style>
+
+<div class="wrap">
+  <p class="eyebrow">Cooper block · Tue 14 Jul · last equipment day before Croatia</p>
+  <h1>Today <span class="plus">·</span> Strength</h1>
+  <p class="lede">A long, full-body session to bank a strength stimulus before the trip
+    (Croatia is bands + rope + poles only). Order top to bottom; rest as needed.</p>
+  <div class="callout"><b>Today's order:</b>
+    <b>1) Aerobic</b> — easy 45–60 min run at ≤165 bpm first, while fresh (a pole walk if
+    the legs are flat). <b>2) Strength</b> — the session below. <b>3) Normatec</b> tonight.
+    Skip the hill sprints today.<br>
+    <b>Keep it LOW intensity</b> — leave <b>2–3 reps in reserve</b>; this is volume before the
+    trip, not a grind. Tap any move for a demo.</div>
+
+  <div class="section-h"><h2>Warm-up</h2><span class="t">~8 min</span></div>
+  <div class="grid">
+    <article class="card"><span class="num">01</span>
+      <div class="stage"><svg viewBox="0 0 200 180" role="img" aria-label="Slide board skate">
+        <path class="dir" d="M150 158 h26 m-10 -7 l10 7 l-10 7"/>
+        <rect class="prop" x="40" y="150" width="120" height="9" rx="3"/>
+        <circle class="head" cx="96" cy="34" r="13"/>
+        <line class="fig" x1="97" y1="47" x2="101" y2="88"/>
+        <polyline class="fig" points="101,88 122,116 140,146"/>
+        <polyline class="fig" points="101,88 82,118 64,146"/>
+        <polyline class="fig" points="99,56 120,66 128,60"/>
+        <polyline class="fig" points="99,56 80,70 76,84"/>
+      </svg></div>
+      <h3>Slide-board skate</h3>
+      <p class="dose">warm-up: 3 min easy · then bands</p>
+      <p class="gear">slide board (+12 kg dumbbell later)</p>
+      <ul class="cues"><li>Long push side-to-side, soft knees, glide.</li>
+        <li>Then banded lateral walks + clamshells + a few pogos.</li></ul>
+      <a class="yt" href="https://www.youtube.com/results?search_query=slide+board+skating+workout" target="_blank" rel="noopener"><span class="tri">▶</span> "slide board skating"</a>
+    </article>
+  </div>
+
+  <div class="section-h"><h2>Legs &amp; posterior chain</h2><span class="t">3 sets · 2–3 in reserve</span></div>
+  <div class="grid">
+
+    <article class="card"><span class="num">02</span>
+      <div class="stage"><svg viewBox="0 0 200 180" role="img" aria-label="Goblet squat">
+        <circle class="head" cx="100" cy="28" r="13"/>
+        <line class="fig" x1="100" y1="41" x2="100" y2="84"/>
+        <polyline class="fig" points="100,84 78,110 80,150"/>
+        <polyline class="fig" points="100,84 122,110 120,150"/>
+        <line class="fig" x1="80" y1="150" x2="68" y2="152"/>
+        <line class="fig" x1="120" y1="150" x2="132" y2="152"/>
+        <polyline class="fig" points="100,52 84,74 98,88"/>
+        <polyline class="fig" points="100,52 116,74 102,88"/>
+        <circle class="fig" cx="100" cy="96" r="9"/>
+        <path class="fig" d="M92 90 Q100 82 108 90"/>
+        <line class="ground" x1="58" y1="158" x2="142" y2="158"/>
+      </svg></div>
+      <h3>Goblet squat</h3>
+      <p class="dose">3 × 12 · controlled</p>
+      <p class="gear">kettlebell 12 kg (or dumbbell)</p>
+      <ul class="cues"><li>Chest tall, sit between the hips, knees track over toes.</li>
+        <li>Full depth you own; drive through mid-foot.</li></ul>
+      <a class="yt" href="https://www.youtube.com/results?search_query=goblet+squat+form" target="_blank" rel="noopener"><span class="tri">▶</span> "goblet squat form"</a>
+    </article>
+
+    <article class="card"><span class="num">03</span>
+      <div class="stage"><svg viewBox="0 0 200 180" role="img" aria-label="Romanian deadlift">
+        <circle class="head" cx="66" cy="52" r="12"/>
+        <line class="fig" x1="76" y1="58" x2="126" y2="76"/>
+        <polyline class="fig" points="126,76 130,112 126,152"/>
+        <line class="fig" x1="126" y1="152" x2="140" y2="152"/>
+        <line class="fig" x1="82" y1="64" x2="90" y2="108"/>
+        <line class="fig" x1="60" y1="108" x2="120" y2="108"/>
+        <rect class="eqf" x="58" y="100" width="7" height="16"/>
+        <rect class="eqf" x="115" y="100" width="7" height="16"/>
+        <line class="ground" x1="52" y1="156" x2="150" y2="156"/>
+      </svg></div>
+      <h3>Romanian deadlift</h3>
+      <p class="dose">3 × 10 · slow lower</p>
+      <p class="gear">barbell (~light) or dumbbells</p>
+      <ul class="cues"><li>Hinge at the hips, <b>flat back</b>, soft knees.</li>
+        <li>Feel the hamstrings load; bar stays close to legs.</li></ul>
+      <a class="yt" href="https://www.youtube.com/results?search_query=romanian+deadlift+form+hamstrings" target="_blank" rel="noopener"><span class="tri">▶</span> "romanian deadlift form"</a>
+    </article>
+
+    <article class="card"><span class="num">04</span>
+      <div class="stage"><svg viewBox="0 0 200 180" role="img" aria-label="Step-up onto box">
+        <rect class="prop" x="120" y="120" width="52" height="36" rx="3"/>
+        <circle class="head" cx="84" cy="32" r="13"/>
+        <line class="fig" x1="86" y1="45" x2="96" y2="90"/>
+        <polyline class="fig" points="96,90 120,100 134,120"/>
+        <polyline class="fig" points="96,90 92,124 90,156"/>
+        <line class="fig" x1="90" y1="156" x2="102" y2="156"/>
+        <line class="fig" x1="94" y1="58" x2="86" y2="98"/>
+        <line class="fig" x1="80" y1="94" x2="80" y2="112"/>
+        <rect class="eqf" x="75" y="108" width="10" height="7"/>
+        <line class="fig" x1="94" y1="58" x2="112" y2="66"/>
+        <line class="ground" x1="52" y1="158" x2="118" y2="158"/>
+      </svg></div>
+      <h3>Step-up</h3>
+      <p class="dose">3 × 10 / leg</p>
+      <p class="gear">step board + dumbbell 12 kg</p>
+      <ul class="cues"><li>Drive through the <b>top</b> foot; don't push off the floor.</li>
+        <li>Control the way down. Knee tracks over the toe.</li></ul>
+      <a class="yt" href="https://www.youtube.com/results?search_query=dumbbell+step+up+exercise+form" target="_blank" rel="noopener"><span class="tri">▶</span> "dumbbell step-up form"</a>
+    </article>
+
+    <article class="card"><span class="num">05</span>
+      <div class="stage"><svg viewBox="0 0 200 180" role="img" aria-label="Slide board skate loaded">
+        <path class="dir" d="M150 158 h26 m-10 -7 l10 7 l-10 7"/>
+        <rect class="prop" x="40" y="150" width="120" height="9" rx="3"/>
+        <circle class="head" cx="96" cy="34" r="13"/>
+        <line class="fig" x1="97" y1="47" x2="101" y2="88"/>
+        <polyline class="fig" points="101,88 122,116 140,146"/>
+        <polyline class="fig" points="101,88 82,118 64,146"/>
+        <line class="fig" x1="99" y1="56" x2="122" y2="70"/>
+        <line class="fig" x1="122" y1="70" x2="122" y2="92"/>
+        <rect class="eqf" x="117" y="88" width="10" height="7"/>
+      </svg></div>
+      <h3>Slide-board skate</h3>
+      <p class="dose">3 × 45–60 s</p>
+      <p class="gear">slide board + 12 kg dumbbell</p>
+      <ul class="cues"><li>Push wide, glute-med + adductor drive, glide quietly.</li>
+        <li>Ski-specific — stay low and rhythmic.</li></ul>
+      <a class="yt" href="https://www.youtube.com/results?search_query=slide+board+skater+glute" target="_blank" rel="noopener"><span class="tri">▶</span> "slide board skaters"</a>
+    </article>
+
+    <article class="card"><span class="num">06</span>
+      <div class="stage"><svg viewBox="0 0 200 180" role="img" aria-label="Calf raise on step">
+        <path class="dir" d="M138 120 v-26 m-6 9 l6 -9 l6 9"/>
+        <rect class="prop" x="66" y="140" width="60" height="18" rx="2"/>
+        <circle class="head" cx="100" cy="30" r="13"/>
+        <line class="fig" x1="100" y1="43" x2="100" y2="96"/>
+        <polyline class="fig" points="100,96 100,124 100,138"/>
+        <line class="fig" x1="100" y1="138" x2="114" y2="138"/>
+        <polyline class="fig" points="100,58 82,72 92,86"/>
+        <polyline class="fig" points="100,58 118,72 108,86"/>
+      </svg></div>
+      <h3>Calf raise on step</h3>
+      <p class="dose">3 × 15–20 · slow, full range</p>
+      <p class="gear">step board (add dumbbell if easy)</p>
+      <ul class="cues"><li>Balls of feet on the edge, drop the heels below, press tall.</li>
+        <li>2-sec up, pause, 2-sec down — Achilles loves the slow.</li></ul>
+      <a class="yt" href="https://www.youtube.com/results?search_query=standing+calf+raise+on+step+form" target="_blank" rel="noopener"><span class="tri">▶</span> "calf raise on step"</a>
+    </article>
+  </div>
+
+  <div class="section-h"><h2>Power &amp; ski-specific</h2><span class="t">crisp, not heavy</span></div>
+  <div class="grid">
+
+    <article class="card"><span class="num">07</span>
+      <div class="stage"><svg viewBox="0 0 200 180" role="img" aria-label="Ercolina double poling">
+        <line class="prop" x1="60" y1="22" x2="140" y2="22"/>
+        <line class="prop" x1="78" y1="22" x2="88" y2="104"/>
+        <line class="prop" x1="122" y1="22" x2="112" y2="104"/>
+        <circle class="head" cx="98" cy="42" r="12"/>
+        <line class="fig" x1="99" y1="54" x2="104" y2="104"/>
+        <polyline class="fig" points="100,62 92,86 88,104"/>
+        <polyline class="fig" points="100,62 110,86 112,104"/>
+        <polyline class="fig" points="104,104 100,152 88,156"/>
+        <polyline class="fig" points="104,104 116,150 128,156"/>
+        <path class="dir" d="M150 60 v30 m-6 -9 l6 9 l6 -9"/>
+        <line class="ground" x1="52" y1="158" x2="150" y2="158"/>
+      </svg></div>
+      <h3>Ercolina double-poling</h3>
+      <p class="dose">4–6 × 30–45 s · powerful but controlled</p>
+      <p class="gear">Ercolina ski-erg</p>
+      <ul class="cues"><li>Tall, then crunch the core and drive both poles down past the hips.</li>
+        <li>Full, rhythmic strokes — ski-specific power, low fatigue.</li></ul>
+      <a class="yt" href="https://www.youtube.com/results?search_query=double+poling+technique+ski" target="_blank" rel="noopener"><span class="tri">▶</span> "double poling technique"</a>
+    </article>
+
+    <article class="card"><span class="num">08</span>
+      <div class="stage"><svg viewBox="0 0 200 180" role="img" aria-label="Kettlebell swing">
+        <path class="dir" d="M92 128 A70 70 0 0 1 150 92" stroke-dasharray="4 7"/>
+        <circle class="head" cx="72" cy="54" r="12"/>
+        <line class="fig" x1="82" y1="60" x2="124" y2="80"/>
+        <polyline class="fig" points="124,80 130,114 126,154"/>
+        <line class="fig" x1="126" y1="154" x2="140" y2="154"/>
+        <line class="fig" x1="86" y1="66" x2="146" y2="92"/>
+        <circle class="fig" cx="150" cy="98" r="9"/>
+        <path class="fig" d="M143 93 Q150 84 157 93"/>
+        <line class="ground" x1="52" y1="158" x2="150" y2="158"/>
+      </svg></div>
+      <h3>Kettlebell swing</h3>
+      <p class="dose">3 × 12 · snap the hips</p>
+      <p class="gear">kettlebell 8–12 kg</p>
+      <ul class="cues"><li>Hinge, then <b>hips</b> snap the bell to chest height — arms are ropes.</li>
+        <li>Flat back, glutes fire at the top.</li></ul>
+      <a class="yt" href="https://www.youtube.com/results?search_query=kettlebell+swing+hip+hinge+form" target="_blank" rel="noopener"><span class="tri">▶</span> "kettlebell swing form"</a>
+    </article>
+
+    <article class="card"><span class="num">09</span>
+      <div class="stage"><svg viewBox="0 0 200 180" role="img" aria-label="Pull-ups">
+        <line class="prop" x1="52" y1="26" x2="148" y2="26"/>
+        <path class="dir" d="M158 96 v-26 m-6 9 l6 -9 l6 9"/>
+        <polyline class="fig" points="84,28 82,54 96,66"/>
+        <polyline class="fig" points="116,28 118,54 104,66"/>
+        <circle class="head" cx="100" cy="50" r="12"/>
+        <line class="fig" x1="100" y1="66" x2="100" y2="116"/>
+        <polyline class="fig" points="100,116 92,142 96,152"/>
+        <polyline class="fig" points="100,116 108,142 104,152"/>
+      </svg></div>
+      <h3>Pull-ups</h3>
+      <p class="dose">3 × 5–8 (or slow negatives)</p>
+      <p class="gear">pull-up bar</p>
+      <ul class="cues"><li>Chest to the bar, shoulders down, no kipping.</li>
+        <li>Can't rep it? Lower slowly from the top, 4–5 s.</li></ul>
+      <a class="yt" href="https://www.youtube.com/results?search_query=pull+up+proper+form" target="_blank" rel="noopener"><span class="tri">▶</span> "pull-up proper form"</a>
+    </article>
+
+    <article class="card"><span class="num">10</span>
+      <div class="stage"><svg viewBox="0 0 200 180" role="img" aria-label="Dips">
+        <line class="prop" x1="60" y1="92" x2="86" y2="92"/>
+        <line class="prop" x1="114" y1="92" x2="140" y2="92"/>
+        <circle class="head" cx="100" cy="42" r="12"/>
+        <line class="fig" x1="100" y1="54" x2="100" y2="112"/>
+        <polyline class="fig" points="100,60 78,82 74,92"/>
+        <polyline class="fig" points="100,60 122,82 126,92"/>
+        <polyline class="fig" points="100,112 96,140 108,150"/>
+        <path class="dir" d="M158 108 v22 m-6 -8 l6 8 l6 -8"/>
+      </svg></div>
+      <h3>Dips</h3>
+      <p class="dose">3 × 8–10 · control</p>
+      <p class="gear">dip bars (or bench)</p>
+      <ul class="cues"><li>Slight forward lean, elbows back, lower to ~90°.</li>
+        <li>Shoulders down — stop if the front of the shoulder pinches.</li></ul>
+      <a class="yt" href="https://www.youtube.com/results?search_query=parallel+bar+dips+form" target="_blank" rel="noopener"><span class="tri">▶</span> "parallel bar dips form"</a>
+    </article>
+  </div>
+
+  <div class="section-h"><h2>Core &amp; balance</h2><span class="t">knee stability</span></div>
+  <div class="grid">
+
+    <article class="card"><span class="num">11</span>
+      <div class="stage"><svg viewBox="0 0 200 180" role="img" aria-label="Back extension on bench">
+        <line class="prop" x1="104" y1="118" x2="140" y2="118"/>
+        <line class="prop" x1="140" y1="118" x2="150" y2="150"/>
+        <circle class="head" cx="60" cy="86" r="12"/>
+        <polyline class="fig" points="72,90 120,114 150,124"/>
+        <line class="fig" x1="150" y1="124" x2="150" y2="150"/>
+        <polyline class="dir" points="72,112 68,90 72,90"/>
+        <line class="ground" x1="46" y1="152" x2="160" y2="152"/>
+      </svg></div>
+      <h3>Back extension</h3>
+      <p class="dose">2 × 12 · no over-arch</p>
+      <p class="gear">back-extension bench</p>
+      <ul class="cues"><li>Rise to a <b>straight line</b> — don't hyperextend past it.</li>
+        <li>Slow and controlled; posterior chain, not momentum.</li></ul>
+      <a class="yt" href="https://www.youtube.com/results?search_query=back+extension+bench+form" target="_blank" rel="noopener"><span class="tri">▶</span> "back extension form"</a>
+    </article>
+
+    <article class="card"><span class="num">12</span>
+      <div class="stage"><svg viewBox="0 0 200 180" role="img" aria-label="Medicine ball Russian twist">
+        <path class="dir" d="M70 96 a24 24 0 0 0 -4 26" stroke-dasharray="4 6"/>
+        <circle class="head" cx="72" cy="72" r="12"/>
+        <line class="fig" x1="80" y1="80" x2="120" y2="120"/>
+        <polyline class="fig" points="120,120 150,112 158,130"/>
+        <polyline class="fig" points="120,120 150,128 158,146"/>
+        <polyline class="fig" points="86,90 108,104 96,120"/>
+        <circle class="ballf" cx="90" cy="122" r="11"/>
+        <line class="ground" x1="60" y1="150" x2="166" y2="150"/>
+      </svg></div>
+      <h3>Med-ball twist</h3>
+      <p class="dose">2 × 12 / side</p>
+      <p class="gear">5 kg medicine ball</p>
+      <ul class="cues"><li>Lean back, feet up or down, rotate from the <b>ribs</b>.</li>
+        <li>Touch the ball each side; keep the low back supported.</li></ul>
+      <a class="yt" href="https://www.youtube.com/results?search_query=russian+twist+medicine+ball+form" target="_blank" rel="noopener"><span class="tri">▶</span> "russian twist form"</a>
+    </article>
+
+    <article class="card"><span class="num">13</span>
+      <div class="stage"><svg viewBox="0 0 200 180" role="img" aria-label="BOSU single-leg balance">
+        <path class="prop" d="M64 150 A44 30 0 0 1 136 150"/>
+        <line class="prop" x1="58" y1="150" x2="142" y2="150"/>
+        <circle class="head" cx="100" cy="30" r="13"/>
+        <line class="fig" x1="100" y1="43" x2="100" y2="90"/>
+        <line class="fig" x1="100" y1="90" x2="100" y2="122"/>
+        <polyline class="fig" points="100,90 118,106 114,128"/>
+        <line class="fig" x1="100" y1="54" x2="76" y2="60"/>
+        <line class="fig" x1="100" y1="54" x2="124" y2="60"/>
+      </svg></div>
+      <h3>BOSU single-leg</h3>
+      <p class="dose">2 × 30 s / leg</p>
+      <p class="gear">BOSU (dome up)</p>
+      <ul class="cues"><li>Soft knee, quiet foot — let the ankle/knee do micro-corrections.</li>
+        <li>This is knee-stability gold post-meniscus. Add small knee bends if easy.</li></ul>
+      <a class="yt" href="https://www.youtube.com/results?search_query=bosu+single+leg+balance+exercise" target="_blank" rel="noopener"><span class="tri">▶</span> "BOSU single-leg balance"</a>
+    </article>
+
+    <article class="card"><span class="num">14</span>
+      <div class="stage"><svg viewBox="0 0 200 180" role="img" aria-label="Balance board">
+        <line class="prop" x1="58" y1="140" x2="142" y2="140"/>
+        <circle class="prop" cx="100" cy="150" r="9"/>
+        <path class="dir" d="M150 150 h18 m-7 -5 l7 5 l-7 5" stroke-dasharray="3 5"/>
+        <circle class="head" cx="100" cy="30" r="13"/>
+        <line class="fig" x1="100" y1="43" x2="100" y2="92"/>
+        <polyline class="fig" points="100,92 88,120 88,136"/>
+        <polyline class="fig" points="100,92 112,120 112,136"/>
+        <line class="fig" x1="100" y1="54" x2="74" y2="52"/>
+        <line class="fig" x1="100" y1="54" x2="126" y2="52"/>
+      </svg></div>
+      <h3>Balance board</h3>
+      <p class="dose">2 × 30 s · steady</p>
+      <p class="gear">wobble/balance board</p>
+      <ul class="cues"><li>Keep the rim off the floor; small, calm corrections.</li>
+        <li>Ankle + knee proprioception — finish the session here.</li></ul>
+      <a class="yt" href="https://www.youtube.com/results?search_query=balance+board+exercise+beginner" target="_blank" rel="noopener"><span class="tri">▶</span> "balance board exercise"</a>
+    </article>
+  </div>
+
+  <div class="foot">
+    <p><b>Core finisher (from your drills guide):</b> front plank, side plank, dead bug,
+      Copenhagen — 1 round. Figures + demos in the drills+core guide.</p>
+    <p><b>Cool-down:</b> foam roll calves/quads/glutes/T-spine + easy hip mobility. Normatec this evening.</p>
+    <p><b>Remember:</b> low intensity, 2–3 in reserve. If anything sharp in the knee or
+      groin — stop that move. This is a bank-it session before Croatia, not a test.</p>
+  </div>
+</div>
+
+</body>
+</html>

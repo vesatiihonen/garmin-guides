@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Run Warm-Up — 8 minutes</title>
+</head>
+<body>
+<style>
+  :root{
+    --bg:#F7F4EE; --surface:#FFFFFF; --ink:#2A2723; --muted:#6E685E;
+    --figure:#33302B; --ghost:#C4BDB0; --accent:#D9990F; --danger:#C6503F;
+    --line:#E7E1D6; --num:#B9B1A2;
+    --sans:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono","Cascadia Code",Menlo,Consolas,monospace;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{--bg:#17150F; --surface:#201D16; --ink:#F1EBDE; --muted:#A79F90;
+      --figure:#E7E0D1; --ghost:#5A5344; --accent:#F0B534; --danger:#E37A6A;
+      --line:#322E24; --num:#5C5547;}
+  }
+  :root[data-theme="light"]{--bg:#F7F4EE; --surface:#FFFFFF; --ink:#2A2723; --muted:#6E685E;
+    --figure:#33302B; --ghost:#C4BDB0; --accent:#D9990F; --danger:#C6503F; --line:#E7E1D6; --num:#B9B1A2;}
+  :root[data-theme="dark"]{--bg:#17150F; --surface:#201D16; --ink:#F1EBDE; --muted:#A79F90;
+    --figure:#E7E0D1; --ghost:#5A5344; --accent:#F0B534; --danger:#E37A6A; --line:#322E24; --num:#5C5547;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.5;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1040px;margin:0 auto;padding:clamp(20px,4vw,44px)}
+  .eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin:0 0 .5rem}
+  h1{font-size:clamp(2.4rem,8vw,4rem);line-height:.94;letter-spacing:-.02em;font-weight:800;text-transform:uppercase;margin:0;text-wrap:balance}
+  h1 .plus{color:var(--accent)}
+  .lede{max-width:62ch;color:var(--muted);margin:1rem 0 0;font-size:1.02rem}
+  .callout{margin:1.1rem 0 0;padding:.7rem 1rem;border-left:4px solid var(--danger);background:color-mix(in srgb,var(--danger) 10%,transparent);
+    font-size:.95rem;border-radius:0 8px 8px 0}
+  .callout b{color:var(--ink)}
+  .section-h{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;margin:2.4rem 0 1rem;padding-bottom:.5rem;border-bottom:2px solid var(--ink)}
+  .section-h h2{font-size:1.1rem;letter-spacing:.14em;text-transform:uppercase;margin:0;font-weight:800}
+  .section-h .t{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;color:var(--muted);text-transform:uppercase}
+  .grid{display:grid;grid-template-columns:1fr;gap:16px}
+  @media(min-width:560px){.grid{grid-template-columns:1fr 1fr}}
+  @media(min-width:900px){.grid{grid-template-columns:1fr 1fr 1fr}}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px 18px;display:flex;flex-direction:column;position:relative;overflow:hidden}
+  .num{position:absolute;top:10px;right:14px;font-family:var(--mono);font-weight:700;font-size:1.1rem;color:var(--num)}
+  .stage{height:180px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);margin:-2px -2px 12px}
+  .stage svg{width:100%;height:100%}
+  .fig{stroke:var(--figure);stroke-width:6;stroke-linecap:round;stroke-linejoin:round;fill:none}
+  .head{stroke:var(--figure);stroke-width:6;fill:none}
+  .ghost{stroke:var(--ghost);stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:3 8;fill:none}
+  .dir{stroke:var(--accent);stroke-width:6;stroke-linecap:round;stroke-linejoin:round;fill:none}
+  .dirf{fill:var(--accent)}
+  .prop{stroke:var(--muted);stroke-width:4;fill:none}
+  .ground{stroke:var(--muted);stroke-width:3;stroke-dasharray:2 7;opacity:.7}
+  h3{margin:0;font-size:1.2rem;letter-spacing:-.01em}
+  .dose{font-family:var(--mono);font-size:.77rem;color:var(--accent);margin:.3rem 0 .3rem;letter-spacing:.01em}
+  .why{font-family:var(--mono);font-size:.7rem;color:var(--muted);margin:0 0 .6rem}
+  .cues{margin:0;padding-left:1.05rem;color:var(--ink);font-size:.9rem}
+  .cues li{margin:.15rem 0}
+  .avoid{color:var(--danger);font-size:.86rem;margin:.6rem 0 0;display:flex;gap:.4rem}
+  .avoid b{font-weight:700}
+  .yt{margin-top:auto;display:inline-flex;align-items:center;gap:.5rem;font-family:var(--mono);font-size:.75rem;color:var(--ink);text-decoration:none;border:1px solid var(--line);border-radius:8px;padding:.5rem .7rem;margin-top:.8rem}
+  .yt:hover,.yt:focus-visible{border-color:var(--accent);color:var(--accent)}
+  .yt .tri{color:var(--danger)}
+  a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .foot{margin-top:2.4rem;border-top:1px solid var(--line);padding-top:1.2rem;color:var(--muted);font-size:.9rem;display:grid;gap:.5rem;max-width:70ch}
+  .foot b{color:var(--ink)}
+</style>
+
+<div class="wrap">
+  <p class="eyebrow">Before every run · ~8 minutes · no equipment</p>
+  <h1>Run <span class="plus">·</span> Warm-Up</h1>
+  <p class="lede">Insurance for the three past-injury sites: <b>hamstring</b>, <b>Achilles</b>,
+    <b>knee</b>. Do the nine moves in this order — warm the tissue, swing it through range,
+    switch the muscles on, prime the tendon springs, then run. Skipping this is how
+    a hamstring seizes at 15&nbsp;km.</p>
+  <div class="callout"><b>Never static-stretch cold.</b> Long stretch holds belong
+    <b>after</b> the run (gentle, 30 s). Before the run everything is moving — momentum, not holds.</div>
+
+  <div class="section-h"><h2>1 · Warm</h2><span class="t">~2 min</span></div>
+  <div class="grid">
+
+    <article class="card"><span class="num">01</span>
+      <div class="stage"><svg viewBox="0 0 200 180" role="img" aria-label="Brisk walking, side view">
+        <path class="dir" d="M150 90 h26 m-10 -7 l10 7 l-10 7"/>
+        <circle class="head" cx="92" cy="30" r="13"/>
+        <line class="fig" x1="94" y1="43" x2="98" y2="94"/>
+        <polyline class="fig" points="96,54 78,70 86,86"/>
+        <polyline class="fig" points="96,54 116,66 128,58"/>
+        <polyline class="fig" points="98,94 84,124 76,152"/>
+        <polyline class="fig" points="98,94 116,122 124,152"/>
+        <line class="fig" x1="76" y1="152" x2="63" y2="156"/>
+        <line class="fig" x1="124" y1="152" x2="138" y2="154"/>
+        <line class="ground" x1="48" y1="160" x2="152" y2="160"/>
+      </svg></div>
+      <h3>Brisk walk → march</h3>
+      <p class="dose">2 min · arms swinging · pick up the pace each 30 s</p>
+      <p class="why">raises tissue temperature — everything after works better warm</p>
+      <ul class="cues"><li>Start easy, finish at a power-walk with high arms.</li>
+        <li>Cold morning or pre-quality day: make it 3–4 min or add 60 s easy rope skips.</li></ul>
+      <a class="yt" href="https://www.youtube.com/results?search_query=dynamic+warm+up+walk+march+running" target="_blank" rel="noopener"><span class="tri">▶</span> "dynamic warm-up march"</a>
+    </article>
+  </div>
+
+  <div class="section-h"><h2>2 · Swing — hamstrings &amp; hips</h2><span class="t">~2.5 min</span></div>
+  <div class="grid">
+
+    <article class="card"><span class="num">02</span>
+      <div class="stage"><svg viewBox="0 0 200 180" role="img" aria-label="Front-back leg swing holding support">
+        <line class="prop" x1="36" y1="40" x2="36" y2="160"/>
+        <circle class="head" cx="86" cy="30" r="13"/>
+        <line class="fig" x1="88" y1="43" x2="92" y2="94"/>
+        <polyline class="fig" points="89,54 62,58 40,54"/>
+        <polyline class="fig" points="92,94 96,124 96,154"/>
+        <line class="fig" x1="96" y1="154" x2="110" y2="156"/>
+        <path class="ghost" d="M92 94 L60 132"/>
+        <polyline class="fig" points="92,94 132,110 158,96"/>
+        <path class="dir" d="M60 138 A62 62 0 0 0 160 104"/>
+        <path class="dirf" d="M160 104 l-10 -1 l6 9 z"/>
+        <line class="ground" x1="60" y1="162" x2="150" y2="162"/>
+      </svg></div>
+      <h3>Leg swings, front–back</h3>
+      <p class="dose">10 / leg · hold a fence/tree · grow the arc</p>
+      <p class="why">dynamic hamstring length — the #1 move for your hamstrings</p>
+      <ul class="cues"><li>Tall spine; swing from the hip, leg loose like a pendulum.</li>
+        <li>Start small, let the arc grow — never force the top.</li></ul>
+      <p class="avoid"><b>✕</b> kicking to max height from swing one</p>
+      <a class="yt" href="https://www.youtube.com/results?search_query=leg+swings+warm+up+runners" target="_blank" rel="noopener"><span class="tri">▶</span> "leg swings warm-up"</a>
+    </article>
+
+    <article class="card"><span class="num">03</span>
+      <div class="stage"><svg viewBox="0 0 200 180" role="img" aria-label="Side-to-side leg swing, front view">
+        <line class="prop" x1="100" y1="34" x2="100" y2="20"/>
+        <circle class="head" cx="100" cy="30" r="13"/>
+        <line class="fig" x1="100" y1="43" x2="100" y2="94"/>
+        <polyline class="fig" points="100,56 78,64 60,56"/>
+        <polyline class="fig" points="100,56 122,64 140,56"/>
+        <polyline class="fig" points="100,94 96,124 94,154"/>
+        <line class="fig" x1="94" y1="154" x2="80" y2="156"/>
+        <path class="ghost" d="M100 94 L134 140"/>
+        <polyline class="fig" points="100,94 66,124 52,140"/>
+        <path class="dir" d="M138 146 A52 52 0 0 1 48 146"/>
+        <path class="dirf" d="M48 146 l9 -4 l-2 10 z"/>
+        <line class="ground" x1="48" y1="162" x2="152" y2="162"/>
+      </svg></div>
+      <h3>Leg swings, side–side</h3>
+      <p class="dose">10 / leg · across the body and out</p>
+      <p class="why">hips + adductors control knee tracking — knee protection</p>
+      <ul class="cues"><li>Face the support, swing the leg across and away.</li>
+        <li>Hips stay square; the leg crosses, the torso doesn't twist.</li></ul>
+      <a class="yt" href="https://www.youtube.com/results?search_query=lateral+leg+swings+warm+up" target="_blank" rel="noopener"><span class="tri">▶</span> "lateral leg swings"</a>
+    </article>
+
+    <article class="card"><span class="num">04</span>
+      <div class="stage"><svg viewBox="0 0 200 180" role="img" aria-label="Walking hamstring scoop, side view">
+        <circle class="head" cx="96" cy="38" r="13"/>
+        <polyline class="fig" points="98,51 92,86 84,108"/>
+        <polyline class="fig" points="96,60 120,80 138,96"/>
+        <polyline class="fig" points="96,60 76,80 62,96"/>
+        <polyline class="fig" points="88,102 106,120 112,152"/>
+        <line class="fig" x1="112" y1="152" x2="126" y2="154"/>
+        <polyline class="fig" points="88,102 64,128 52,148"/>
+        <line class="fig" x1="52" y1="148" x2="44" y2="138"/>
+        <path class="dir" d="M60 120 q14 18 36 22"/>
+        <path class="dirf" d="M96 142 l-10 2 l6 8 z"/>
+        <line class="ground" x1="36" y1="160" x2="150" y2="160"/>
+      </svg></div>
+      <h3>Hamstring scoops</h3>
+      <p class="dose">8 / leg · walking · heel out, hinge, scoop</p>
+      <p class="why">loads the hamstring gently through its full length</p>
+      <ul class="cues"><li>Step heel out on a straight leg, toe up; hinge at the hip and "scoop" the air past your foot.</li>
+        <li>Feel a gentle pull behind the thigh — pull, never pain.</li></ul>
+      <p class="avoid"><b>✕</b> rounding the back to reach lower</p>
+      <a class="yt" href="https://www.youtube.com/results?search_query=hamstring+scoops+dynamic+warm+up" target="_blank" rel="noopener"><span class="tri">▶</span> "hamstring scoops"</a>
+    </article>
+  </div>
+
+  <div class="section-h"><h2>3 · Activate — glutes &amp; knees</h2><span class="t">~1.5 min</span></div>
+  <div class="grid">
+
+    <article class="card"><span class="num">05</span>
+      <div class="stage"><svg viewBox="0 0 200 180" role="img" aria-label="Single-leg hip hinge reach, side view">
+        <circle class="head" cx="120" cy="52" r="13"/>
+        <polyline class="fig" points="118,65 96,80 78,90"/>
+        <polyline class="fig" points="112,70 92,96 78,116"/>
+        <polyline class="fig" points="82,88 100,110 104,152"/>
+        <line class="fig" x1="104" y1="152" x2="118" y2="154"/>
+        <polyline class="fig" points="82,88 46,96 22,104"/>
+        <path class="ghost" d="M82 88 L82 40"/>
+        <path class="dir" d="M60 128 v18 m-6 -8 l6 8 l6 -8"/>
+        <line class="ground" x1="60" y1="160" x2="150" y2="160"/>
+      </svg></div>
+      <h3>Hinge + reach (single leg)</h3>
+      <p class="dose">8 / leg · slow · hips square</p>
+      <p class="why">wakes glutes + hamstring together; teaches the hinge, not the back</p>
+      <ul class="cues"><li>Soft knee on the standing leg; free leg drifts back as you tip.</li>
+        <li>Reach toward the ground, spine long — a drinking bird, not a bow.</li></ul>
+      <a class="yt" href="https://www.youtube.com/results?search_query=single+leg+RDL+bodyweight+warm+up" target="_blank" rel="noopener"><span class="tri">▶</span> "single-leg RDL bodyweight"</a>
+    </article>
+
+    <article class="card"><span class="num">06</span>
+      <div class="stage"><svg viewBox="0 0 200 180" role="img" aria-label="Walking lunge, side view">
+        <circle class="head" cx="98" cy="28" r="13"/>
+        <line class="fig" x1="100" y1="41" x2="102" y2="92"/>
+        <polyline class="fig" points="100,52 82,66 74,82"/>
+        <polyline class="fig" points="100,52 120,64 132,56"/>
+        <polyline class="fig" points="102,92 134,108 134,150"/>
+        <line class="fig" x1="134" y1="150" x2="150" y2="150"/>
+        <polyline class="fig" points="102,92 84,124 60,140"/>
+        <line class="fig" x1="60" y1="140" x2="50" y2="152"/>
+        <path class="dir" d="M158 96 h22 m-9 -7 l9 7 l-9 7"/>
+        <line class="ground" x1="42" y1="158" x2="162" y2="158"/>
+      </svg></div>
+      <h3>Walking lunges</h3>
+      <p class="dose">6 / leg · tall torso · controlled down</p>
+      <p class="why">knee tracks under load — quad + glute switched on before impact</p>
+      <ul class="cues"><li>Front knee over the toes, never caving inward.</li>
+        <li>Push through the front heel to stand into the next step.</li></ul>
+      <p class="avoid"><b>✕</b> short choppy steps with the torso tipped forward</p>
+      <a class="yt" href="https://www.youtube.com/results?search_query=walking+lunge+form+runners" target="_blank" rel="noopener"><span class="tri">▶</span> "walking lunge form"</a>
+    </article>
+  </div>
+
+  <div class="section-h"><h2>4 · Spring — Achilles &amp; calves</h2><span class="t">~1.5 min</span></div>
+  <div class="grid">
+
+    <article class="card"><span class="num">07</span>
+      <div class="stage"><svg viewBox="0 0 200 180" role="img" aria-label="Calf raise with slow lower">
+        <circle class="head" cx="100" cy="26" r="13"/>
+        <line class="fig" x1="100" y1="39" x2="100" y2="92"/>
+        <polyline class="fig" points="100,52 84,64 88,80"/>
+        <polyline class="fig" points="100,52 116,64 112,80"/>
+        <polyline class="fig" points="100,92 96,122 96,146"/>
+        <polyline class="fig" points="100,92 104,122 104,146"/>
+        <line class="fig" x1="96" y1="146" x2="86" y2="148"/>
+        <line class="fig" x1="104" y1="146" x2="114" y2="148"/>
+        <path class="dir" d="M140 130 v-24 m-6 9 l6 -9 l6 9"/>
+        <path class="ghost" d="M60 116 v28 m-5 -10 l5 10 l5 -10"/>
+        <line class="ground" x1="56" y1="160" x2="144" y2="160"/>
+      </svg></div>
+      <h3>Calf raises, slow lower</h3>
+      <p class="dose">12 · up fast, down in 3 s · both legs</p>
+      <p class="why">the 3-second lower is Achilles-tendon medicine</p>
+      <ul class="cues"><li>Full height on the toes, then lower on a slow count of three.</li>
+        <li>Any Achilles ache: keep them flat-ground, skip the pogos next card.</li></ul>
+      <a class="yt" href="https://www.youtube.com/results?search_query=eccentric+calf+raise+achilles" target="_blank" rel="noopener"><span class="tri">▶</span> "eccentric calf raise"</a>
+    </article>
+
+    <article class="card"><span class="num">08</span>
+      <div class="stage"><svg viewBox="0 0 200 180" role="img" aria-label="Small ankle pogos">
+        <path class="dir" d="M52 128 v-26 m-7 10 l7 -10 l7 10"/>
+        <path class="dir" d="M148 128 v-26 m-7 10 l7 -10 l7 10"/>
+        <circle class="head" cx="100" cy="30" r="13"/>
+        <line class="fig" x1="100" y1="43" x2="100" y2="92"/>
+        <polyline class="fig" points="100,54 82,66 92,80"/>
+        <polyline class="fig" points="100,54 118,66 108,80"/>
+        <polyline class="fig" points="100,92 97,120 97,148"/>
+        <polyline class="fig" points="100,92 103,120 103,148"/>
+        <line class="fig" x1="97" y1="148" x2="86" y2="150"/>
+        <line class="fig" x1="103" y1="148" x2="114" y2="150"/>
+        <line class="ghost" x1="84" y1="158" x2="116" y2="158"/>
+      </svg></div>
+      <h3>Ankle pogos, small</h3>
+      <p class="dose">2 × 15 · tiny, quiet, elastic</p>
+      <p class="why">primes tendon stiffness — free speed, protected Achilles</p>
+      <ul class="cues"><li>Legs long, bounce from the ankles only, minimal ground time.</li>
+        <li>Quiet = correct. Loud slapping = resting too long on the ground.</li></ul>
+      <p class="avoid"><b>✕</b> doing these cold — always after the calf raises</p>
+      <a class="yt" href="https://www.youtube.com/results?search_query=pogo+hops+ankle+stiffness+drill" target="_blank" rel="noopener"><span class="tri">▶</span> "pogo hops ankle drill"</a>
+    </article>
+
+    <article class="card"><span class="num">09</span>
+      <div class="stage"><svg viewBox="0 0 200 180" role="img" aria-label="A-march transition to run">
+        <path class="dir" d="M152 84 h26 m-10 -7 l10 7 l-10 7"/>
+        <circle class="head" cx="92" cy="28" r="13"/>
+        <line class="fig" x1="94" y1="41" x2="98" y2="92"/>
+        <polyline class="fig" points="96,52 118,60 130,52"/>
+        <polyline class="fig" points="96,52 78,66 70,80"/>
+        <polyline class="fig" points="98,92 98,124 98,156"/>
+        <line class="fig" x1="98" y1="156" x2="112" y2="156"/>
+        <polyline class="fig" points="98,92 128,90 124,118"/>
+        <line class="fig" x1="124" y1="118" x2="136" y2="112"/>
+        <line class="ground" x1="56" y1="160" x2="148" y2="160"/>
+      </svg></div>
+      <h3>A-march → easy jog</h3>
+      <p class="dose">2 × 15 m march · then jog off into the run</p>
+      <p class="why">stitches the warm-up into your stride mechanics</p>
+      <ul class="cues"><li>Knee to horizontal, toe up, foot lands under the hip.</li>
+        <li>Let the second set drift into a light skip, then simply keep jogging.</li></ul>
+      <a class="yt" href="https://www.youtube.com/results?search_query=a+march+running+drill" target="_blank" rel="noopener"><span class="tri">▶</span> "A-march drill"</a>
+    </article>
+  </div>
+
+  <div class="foot">
+    <p><b>Then the run starts slow:</b> first 10 minutes ≥30 s/km slower than easy pace,
+      HR under ~140. Strides only after 15+ minutes of running — and <b>none on a day the
+      hamstring feels tight</b>.</p>
+    <p><b>Tight / sore hamstring day:</b> double the swings and scoops, shorten your stride,
+      skip all strides and hills. A hamstring that stiffens mid-run = stop, walk, Normatec —
+      exactly the right call, not a failure.</p>
+    <p><b>Sharp pain</b> anywhere (hamstring, Achilles, knee) = the session is over. Tightness
+      you can jog through; sharpness you cannot.</p>
+    <p><b>After the run:</b> 2 min walk, then gentle 30 s static holds — hamstrings, calves,
+      hip flexors. That's where the long stretching lives, never before.</p>
+  </div>
+</div>
+
+</body>
+</html>

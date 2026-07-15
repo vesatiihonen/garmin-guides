@@ -7,6 +7,29 @@
 <title>Vesa — Training Guides</title>
 </head>
 <body>
-<div style="max-width:640px;margin:12vh auto;padding:0 24px;font-family:system-ui,Segoe UI,Roboto,sans-serif;line-height:1.6"><h1 style="letter-spacing:-.02em">Training guides</h1><p style="color:#777">Visual exercise references — tap a move for a YouTube demo.</p><ul style="font-size:1.2rem"><li><a href="program.html">9-Week Program — actual + planned</a></li><li><a href="forecast.html">Forecast vs Goal (Cooper 3500 m)</a></li><li><a href="today-strength.html">Today · Strength</a></li><li><a href="travel-drills-core.html">Drills + Core (when traveling)</a></li></ul></div>
+<style>
+  :root{--bg:#F7F4EE;--surface:#FFFFFF;--ink:#2A2723;--muted:#6E685E;--accent:#D9990F;--line:#E7E1D6;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;}
+  @media (prefers-color-scheme:dark){:root{--bg:#17150F;--surface:#201D16;--ink:#F1EBDE;
+    --muted:#A79F90;--accent:#F0B534;--line:#322E24;}}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);line-height:1.5;
+    font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:760px;margin:0 auto;padding:clamp(24px,6vw,64px) clamp(20px,4vw,44px)}
+  .eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin:0 0 .5rem}
+  h1{font-size:clamp(2.2rem,7vw,3.4rem);line-height:.96;letter-spacing:-.02em;font-weight:800;text-transform:uppercase;margin:0}
+  .lede{color:var(--muted);margin:.8rem 0 0;max-width:56ch}
+  h2{font-family:var(--mono);font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--muted);margin:2.4rem 0 .8rem;border-bottom:1px solid var(--line);padding-bottom:.4rem}
+  .cards{display:grid;gap:12px;grid-template-columns:1fr}
+  @media(min-width:560px){.cards{grid-template-columns:1fr 1fr}}
+  a.card{display:block;background:var(--surface);border:1px solid var(--line);border-radius:14px;
+    padding:16px 18px;text-decoration:none;color:var(--ink)}
+  a.card:hover,a.card:focus-visible{border-color:var(--accent);outline:none}
+  a.card h3{margin:0;font-size:1.15rem;letter-spacing:-.01em}
+  a.card p{margin:.35rem 0 0;color:var(--muted);font-size:.9rem}
+  a.card .go{font-family:var(--mono);font-size:.72rem;color:var(--accent);margin-top:.6rem;display:inline-block}
+  .foot{margin-top:3rem;color:var(--muted);font-size:.82rem;border-top:1px solid var(--line);padding-top:1rem}
+</style><div class="wrap"><p class="eyebrow">Cooper build &middot; Sep 16</p><h1>Training Guides</h1><p class="lede">Live pages update daily from Garmin data. References are the visual how-to guides.</p><h2>Live</h2><div class="cards"><a class="card" href="program.html"><h3>9-Week Program</h3><p>Every day to race day — what you actually did, today, and the plan ahead.</p><span class="go">open &rarr;</span></a><a class="card" href="forecast.html"><h3>Forecast vs Goal</h3><p>Projected Cooper trajectory and how each attribute stacks up against 3500 m.</p><span class="go">open &rarr;</span></a></div><h2>Reference</h2><div class="cards"><a class="card" href="run-warmup.html"><h3>Run Warm-Up</h3><p>8 minutes before every run — hamstring, Achilles and knee insurance.</p><span class="go">open &rarr;</span></a><a class="card" href="today-strength.html"><h3>Strength Session</h3><p>Full-body garage session with visual form guides.</p><span class="go">open &rarr;</span></a><a class="card" href="travel-drills-core.html"><h3>Drills + Core (traveling)</h3><p>Bands + rope + bodyweight — the 6×/week habit, anywhere.</p><span class="go">open &rarr;</span></a></div><p class="foot">Auto-built from the coach project. Live pages refresh daily and on every plan change.</p></div>
 </body>
 </html>

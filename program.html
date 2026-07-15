@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>9-Week Program — actual + planned</title>
+</head>
+<body>
+<style>
+  :root{--bg:#F7F4EE;--surface:#FFFFFF;--ink:#2A2723;--muted:#6E685E;--ghost:#C4BDB0;
+    --accent:#D9990F;--accent-soft:#F3E4C4;--danger:#C6503F;--good:#4F7A3A;--line:#E7E1D6;--num:#B9B1A2;
+    --sans:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;--mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;}
+  @media (prefers-color-scheme:dark){:root{--bg:#17150F;--surface:#201D16;--ink:#F1EBDE;--muted:#A79F90;
+    --ghost:#5A5344;--accent:#F0B534;--accent-soft:#3A3320;--danger:#E37A6A;--good:#8FBF6E;--line:#322E24;--num:#5C5547;}}
+  :root[data-theme="light"]{--bg:#F7F4EE;--surface:#FFFFFF;--ink:#2A2723;--muted:#6E685E;--ghost:#C4BDB0;
+    --accent:#D9990F;--accent-soft:#F3E4C4;--danger:#C6503F;--good:#4F7A3A;--line:#E7E1D6;--num:#B9B1A2;}
+  :root[data-theme="dark"]{--bg:#17150F;--surface:#201D16;--ink:#F1EBDE;--muted:#A79F90;--ghost:#5A5344;
+    --accent:#F0B534;--accent-soft:#3A3320;--danger:#E37A6A;--good:#8FBF6E;--line:#322E24;--num:#5C5547;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.5;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:920px;margin:0 auto;padding:clamp(20px,4vw,44px)}
+  a.back{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none}
+  a.back:hover{color:var(--accent)}
+  .eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin:1rem 0 .4rem}
+  h1{font-size:clamp(2.1rem,7vw,3.4rem);line-height:.98;letter-spacing:-.02em;font-weight:800;text-transform:uppercase;margin:0;text-wrap:balance}
+  .lede{max-width:64ch;color:var(--muted);margin:1rem 0 0;font-size:1.02rem}
+  .callout{margin:1.2rem 0 0;padding:.7rem 1rem;border-left:4px solid var(--accent);background:color-mix(in srgb,var(--accent) 12%,transparent);
+    font-size:.9rem;border-radius:0 8px 8px 0}
+  .callout b{color:var(--ink)}
+  .wk{margin:2rem 0 0;border:1px solid var(--line);border-radius:14px;background:var(--surface);overflow:hidden}
+  .wk>header{display:flex;flex-wrap:wrap;align-items:baseline;gap:.6rem;justify-content:space-between;
+    padding:.8rem 1.1rem;border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--accent) 6%,transparent)}
+  .wk h2{font-size:1rem;letter-spacing:.06em;text-transform:uppercase;margin:0;font-weight:800}
+  .wk .meta{font-family:var(--mono);font-size:.72rem;color:var(--muted);letter-spacing:.04em}
+  .wk .rec{color:var(--danger);font-weight:700}
+  ul.days{list-style:none;margin:0;padding:.4rem .6rem}
+  ul.days li{display:grid;grid-template-columns:5.2rem 1fr;gap:.7rem;padding:.55rem .5rem;border-bottom:1px solid var(--line);align-items:start}
+  ul.days li:last-child{border-bottom:0}
+  .dcol{font-family:var(--mono);font-size:.78rem;color:var(--muted);padding-top:.1rem}
+  .dcol b{color:var(--ink);display:block;font-size:.9rem}
+  .planned{color:var(--muted);font-size:.92rem}
+  .actual{color:var(--ink);font-size:.92rem}
+  li.past .dcol b{color:var(--muted)}
+  li.today{background:color-mix(in srgb,var(--accent) 14%,transparent);border-radius:10px}
+  li.today .dcol b,li.today .actual,li.today .planned{color:var(--ink);font-weight:700}
+  li.today .tag-today{display:inline-block;font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;
+    background:var(--accent);color:#1b1710;padding:.05rem .4rem;border-radius:5px;margin-left:.3rem;vertical-align:middle}
+  .chips{display:flex;flex-wrap:wrap;gap:.3rem;margin:.3rem 0 0}
+  .chip{font-family:var(--mono);font-size:.68rem;color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:.08rem .4rem}
+  .chip.thr{color:var(--danger);border-color:color-mix(in srgb,var(--danger) 45%,var(--line))}
+  .chip.easy{color:var(--good);border-color:color-mix(in srgb,var(--good) 40%,var(--line))}
+  .miss{color:var(--ghost);font-size:.9rem;font-style:italic}
+  table.tiers{width:100%;border-collapse:collapse;margin:1.4rem 0 0;font-size:.9rem}
+  table.tiers th,table.tiers td{text-align:left;padding:.5rem .6rem;border-bottom:1px solid var(--line)}
+  table.tiers th{font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  table.tiers tr.goal{background:color-mix(in srgb,var(--accent) 12%,transparent);font-weight:700}
+  .meters{margin:1.4rem 0 0;display:grid;gap:1rem}
+  .meter .top{display:flex;justify-content:space-between;align-items:baseline;gap:.6rem}
+  .meter .name{font-weight:700}
+  .meter .val{font-family:var(--mono);font-size:.76rem;color:var(--muted)}
+  .track{position:relative;height:12px;background:var(--line);border-radius:7px;margin:.35rem 0 .3rem;overflow:hidden}
+  .fill{position:absolute;left:0;top:0;bottom:0;background:var(--accent);border-radius:7px}
+  .fill.over{background:var(--good)}
+  .target{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--ink)}
+  .meter .note{color:var(--muted);font-size:.84rem;margin:0}
+  figure.traj{margin:1.4rem 0 0}
+  figure.traj svg{width:100%;height:auto;display:block}
+  .axis{stroke:var(--line);stroke-width:1}
+  .gridln{stroke:var(--line);stroke-width:1;stroke-dasharray:2 6;opacity:.7}
+  .tline{stroke:var(--accent);stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+  .tdot{fill:var(--surface);stroke:var(--accent);stroke-width:2}
+  .goalln{stroke:var(--danger);stroke-width:1.5;stroke-dasharray:5 4}
+  .lbl{font-family:var(--mono);font-size:10px;fill:var(--muted)}
+  .lbl.ink{fill:var(--ink);font-weight:700}
+  figcaption{color:var(--muted);font-size:.82rem;margin:.6rem 0 0}
+  .foot{margin-top:2.4rem;border-top:1px solid var(--line);padding-top:1rem;color:var(--muted);font-size:.82rem;max-width:70ch}
+</style>
+<div class="wrap">
+<a class="back" href="index.html">&larr; guides</a>
+<p class="eyebrow">Cooper build &middot; 9 weeks</p>
+<h1>The 9-Week Program</h1>
+<p class="lede">Every day from Jul 13 to race day <b>Wed Sep 16</b> (Lahti, target 3500 m). Past days show what you actually did per Garmin; <b>today is highlighted</b>; future days are the plan.</p>
+<div class="callout"><b>Reading it:</b> amber-bordered chips = <span style="color:var(--good)">easy</span> / <span style="color:var(--danger)">aerobic-threshold</span> classification (vertical + HR factored in). Planned text is muted; recorded work is solid.</div>
+<section class="wk">
+<header><h2>Week 1</h2><span class="meta">Jul 13–Jul 19 &middot; Wk1 Base (auto-regulate)</span></header>
+<ul class="days">
+<li class="past"><div class="dcol">Mon<b>13.7</b></div><div><div class="actual">Lahti Running</div><div class="chips"><span class="chip">19.5 km</span><span class="chip">117 min</span><span class="chip">HR 126</span><span class="chip">+99 m</span><span class="chip">1378 kcal</span><span class="chip easy">easy</span></div><div class="actual">Strength</div><div class="chips"><span class="chip">28 min</span><span class="chip">214 kcal</span><span class="chip">HR 116</span></div></div></li>
+<li class="past"><div class="dcol">Tue<b>14.7</b></div><div><div class="actual">Lahti Running</div><div class="chips"><span class="chip">13.8 km</span><span class="chip">84 min</span><span class="chip">HR 148</span><span class="chip">+502 m</span><span class="chip">1123 kcal</span><span class="chip thr">aerobic threshold</span></div><div class="actual">Strength</div><div class="chips"><span class="chip">56 min</span><span class="chip">485 kcal</span><span class="chip">HR 126</span></div></div></li>
+<li class="today"><div class="dcol">Wed<span class="tag-today">TODAY</span><b>15.7</b></div><div><div class="planned">Planned: Long-ish easy 90 min (~17–18 km) ≤165 bpm. PM: strength micro + Normatec.</div></div></li>
+<li class="future"><div class="dcol">Thu<b>16.7</b></div><div><div class="planned">Easy 70 min + 6×20 s strides. PM: 40 min easy.</div></div></li>
+<li class="future"><div class="dcol">Fri<b>17.7</b></div><div><div class="planned">15 min easy → 20 min tempo @ 3:55–4:00/km → easy to 75 min. PM: 30–40 min easy or pole walk.</div></div></li>
+<li class="future"><div class="dcol">Sat<b>18.7</b></div><div><div class="planned">TRAVEL to Croatia — mobility + Normatec after the flight; short shakeout only if time.</div></div></li>
+<li class="future"><div class="dcol">Sun<b>19.7</b></div><div><div class="planned">Croatia — easy 90–110 min AM (beat the heat) + 6×20 s strides; PM trail pole-hike.</div></div></li>
+</ul></section>
+<section class="wk">
+<header><h2>Week 2 &middot; <span class=rec>DOWN WEEK</span></h2><span class="meta">Jul 20–Jul 26 &middot; Wk2 RECOVERY (Croatia) — easy + sleep</span></header>
+<ul class="days">
+<li class="future"><div class="dcol">Mon<b>20.7</b></div><div><div class="planned">Recovery week: 40–70 min easy ≤165 bpm only, no quality. Pole walk/hike ok. Sleep is the session.</div></div></li>
+<li class="future"><div class="dcol">Tue<b>21.7</b></div><div><div class="planned">Recovery week: 40–70 min easy ≤165 bpm only, no quality. Pole walk/hike ok. Sleep is the session.</div></div></li>
+<li class="future"><div class="dcol">Wed<b>22.7</b></div><div><div class="planned">Recovery week: 40–70 min easy ≤165 bpm only, no quality. Pole walk/hike ok. Sleep is the session.</div></div></li>
+<li class="future"><div class="dcol">Thu<b>23.7</b></div><div><div class="planned">Recovery week: 40–70 min easy ≤165 bpm only, no quality. Pole walk/hike ok. Sleep is the session.</div></div></li>
+<li class="future"><div class="dcol">Fri<b>24.7</b></div><div><div class="planned">Recovery week: 40–70 min easy ≤165 bpm only, no quality. Pole walk/hike ok. Sleep is the session.</div></div></li>
+<li class="future"><div class="dcol">Sat<b>25.7</b></div><div><div class="planned">Recovery week: 40–70 min easy ≤165 bpm only, no quality. Pole walk/hike ok. Sleep is the session.</div></div></li>
+<li class="future"><div class="dcol">Sun<b>26.7</b></div><div><div class="planned">Recovery week: 40–70 min easy ≤165 bpm only, no quality. Pole walk/hike ok. Sleep is the session.</div></div></li>
+</ul></section>
+<section class="wk">
+<header><h2>Week 3</h2><span class="meta">Jul 27–Aug 2 &middot; Wk3 Base build</span></header>
+<ul class="days">
+<li class="future"><div class="dcol">Mon<b>27.7</b></div><div><div class="planned">Easy 75 min ≤165 bpm + 6×20 s strides. PM: 40 min easy or 45 min pole walk/hike. Micro: core + A-skips.</div></div></li>
+<li class="future"><div class="dcol">Tue<b>28.7</b></div><div><div class="planned">Easy 60 min + 8×10 s steep hill sprints (walk down) + drills. PM: 45 min pole walk/hike.</div></div></li>
+<li class="future"><div class="dcol">Wed<b>29.7</b></div><div><div class="planned">Long-ish easy 90 min (~17–18 km) ≤165 bpm. PM: strength micro + Normatec.</div></div></li>
+<li class="future"><div class="dcol">Thu<b>30.7</b></div><div><div class="planned">Easy 70 min + 6×20 s strides. PM: 40 min easy.</div></div></li>
+<li class="future"><div class="dcol">Fri<b>31.7</b></div><div><div class="planned">15 min easy → 20 min tempo @ 3:55–4:00/km → easy to 75 min. PM: 30–40 min easy or pole walk.</div></div></li>
+<li class="future"><div class="dcol">Sat<b>1.8</b></div><div><div class="planned">Long run 20–27 km easy ≤165 bpm.</div></div></li>
+<li class="future"><div class="dcol">Sun<b>2.8</b></div><div><div class="planned">Easy 60 min + pole walk/hike, or a full pole-hike day. Normatec.</div></div></li>
+</ul></section>
+<section class="wk">
+<header><h2>Week 4</h2><span class="meta">Aug 3–Aug 9 &middot; Wk4 VO2max</span></header>
+<ul class="days">
+<li class="future"><div class="dcol">Mon<b>3.8</b></div><div><div class="planned">Easy 60–75 min + 6×20 s strides.</div></div></li>
+<li class="future"><div class="dcol">Tue<b>4.8</b></div><div><div class="planned">QUALITY A: 15 min WU → 5–6×800 m @ 2:36–2:40 (2:30 jog) → CD (progress to 5×1000 m).</div></div></li>
+<li class="future"><div class="dcol">Wed<b>5.8</b></div><div><div class="planned">Easy 75–90 min ≤165 bpm.</div></div></li>
+<li class="future"><div class="dcol">Thu<b>6.8</b></div><div><div class="planned">Easy 60 min + 6×20 s strides (+ optional 6×10 s hill maintenance).</div></div></li>
+<li class="future"><div class="dcol">Fri<b>7.8</b></div><div><div class="planned">QUALITY B: 15 min WU → 10–12×400 m @ 78–80 s (60–75 s rest) → CD.</div></div></li>
+<li class="future"><div class="dcol">Sat<b>8.8</b></div><div><div class="planned">Long run 20–24 km easy.</div></div></li>
+<li class="future"><div class="dcol">Sun<b>9.8</b></div><div><div class="planned">Easy 45–60 min or pole walk/hike. Normatec.</div></div></li>
+</ul></section>
+<section class="wk">
+<header><h2>Week 5</h2><span class="meta">Aug 10–Aug 16 &middot; Wk5 VO2max</span></header>
+<ul class="days">
+<li class="future"><div class="dcol">Mon<b>10.8</b></div><div><div class="planned">Easy 60–75 min + 6×20 s strides.</div></div></li>
+<li class="future"><div class="dcol">Tue<b>11.8</b></div><div><div class="planned">QUALITY A: 15 min WU → 5–6×800 m @ 2:36–2:40 (2:30 jog) → CD (progress to 5×1000 m).</div></div></li>
+<li class="future"><div class="dcol">Wed<b>12.8</b></div><div><div class="planned">Easy 75–90 min ≤165 bpm.</div></div></li>
+<li class="future"><div class="dcol">Thu<b>13.8</b></div><div><div class="planned">Easy 60 min + 6×20 s strides (+ optional 6×10 s hill maintenance).</div></div></li>
+<li class="future"><div class="dcol">Fri<b>14.8</b></div><div><div class="planned">QUALITY B: 15 min WU → 10–12×400 m @ 78–80 s (60–75 s rest) → CD.</div></div></li>
+<li class="future"><div class="dcol">Sat<b>15.8</b></div><div><div class="planned">Long run 20–24 km easy.</div></div></li>
+<li class="future"><div class="dcol">Sun<b>16.8</b></div><div><div class="planned">Easy 45–60 min or pole walk/hike. Normatec.</div></div></li>
+</ul></section>
+<section class="wk">
+<header><h2>Week 6 &middot; <span class=rec>DOWN WEEK</span></h2><span class="meta">Aug 17–Aug 23 &middot; Wk6 RECOVERY / adapt</span></header>
+<ul class="days">
+<li class="future"><div class="dcol">Mon<b>17.8</b></div><div><div class="planned">Recovery week: 40–70 min easy ≤165 bpm only, no quality. Pole walk/hike ok. Sleep is the session.</div></div></li>
+<li class="future"><div class="dcol">Tue<b>18.8</b></div><div><div class="planned">Recovery week: 40–70 min easy ≤165 bpm only, no quality. Pole walk/hike ok. Sleep is the session.</div></div></li>
+<li class="future"><div class="dcol">Wed<b>19.8</b></div><div><div class="planned">Recovery week: 40–70 min easy ≤165 bpm only, no quality. Pole walk/hike ok. Sleep is the session.</div></div></li>
+<li class="future"><div class="dcol">Thu<b>20.8</b></div><div><div class="planned">Recovery week: 40–70 min easy ≤165 bpm only, no quality. Pole walk/hike ok. Sleep is the session.</div></div></li>
+<li class="future"><div class="dcol">Fri<b>21.8</b></div><div><div class="planned">Recovery week: 40–70 min easy ≤165 bpm only, no quality. Pole walk/hike ok. Sleep is the session.</div></div></li>
+<li class="future"><div class="dcol">Sat<b>22.8</b></div><div><div class="planned">Recovery week: 40–70 min easy ≤165 bpm only, no quality. Pole walk/hike ok. Sleep is the session.</div></div></li>
+<li class="future"><div class="dcol">Sun<b>23.8</b></div><div><div class="planned">Recovery week: 40–70 min easy ≤165 bpm only, no quality. Pole walk/hike ok. Sleep is the session.</div></div></li>
+</ul></section>
+<section class="wk">
+<header><h2>Week 7</h2><span class="meta">Aug 24–Aug 30 &middot; Wk7 Race-specific</span></header>
+<ul class="days">
+<li class="future"><div class="dcol">Mon<b>24.8</b></div><div><div class="planned">Easy 50–60 min + strides.</div></div></li>
+<li class="future"><div class="dcol">Tue<b>25.8</b></div><div><div class="planned">QUALITY A: 3×1600 m @ goal pace (5:29–5:30, 82 s/400), 2:30–3:00 rest. If controlled, 3500 is on.</div></div></li>
+<li class="future"><div class="dcol">Wed<b>26.8</b></div><div><div class="planned">Easy 60–75 min.</div></div></li>
+<li class="future"><div class="dcol">Thu<b>27.8</b></div><div><div class="planned">Easy 40–50 min + 4–6×20 s strides.</div></div></li>
+<li class="future"><div class="dcol">Fri<b>28.8</b></div><div><div class="planned">QUALITY B: 2000 m time trial (or 6×600 m slightly faster than goal).</div></div></li>
+<li class="future"><div class="dcol">Sat<b>29.8</b></div><div><div class="planned">Easy 60–70 min.</div></div></li>
+<li class="future"><div class="dcol">Sun<b>30.8</b></div><div><div class="planned">Easy 40 min or rest. Normatec.</div></div></li>
+</ul></section>
+<section class="wk">
+<header><h2>Week 8</h2><span class="meta">Aug 31–Sep 6 &middot; Wk8 Race-specific</span></header>
+<ul class="days">
+<li class="future"><div class="dcol">Mon<b>31.8</b></div><div><div class="planned">Easy 50–60 min + strides.</div></div></li>
+<li class="future"><div class="dcol">Tue<b>1.9</b></div><div><div class="planned">QUALITY A: 3×1600 m @ goal pace (5:29–5:30, 82 s/400), 2:30–3:00 rest. If controlled, 3500 is on.</div></div></li>
+<li class="future"><div class="dcol">Wed<b>2.9</b></div><div><div class="planned">Easy 60–75 min.</div></div></li>
+<li class="future"><div class="dcol">Thu<b>3.9</b></div><div><div class="planned">Easy 40–50 min + 4–6×20 s strides.</div></div></li>
+<li class="future"><div class="dcol">Fri<b>4.9</b></div><div><div class="planned">QUALITY B: 2000 m time trial (or 6×600 m slightly faster than goal).</div></div></li>
+<li class="future"><div class="dcol">Sat<b>5.9</b></div><div><div class="planned">Easy 60–70 min.</div></div></li>
+<li class="future"><div class="dcol">Sun<b>6.9</b></div><div><div class="planned">Easy 40 min or rest. Normatec.</div></div></li>
+</ul></section>
+<section class="wk">
+<header><h2>Week 9 &middot; <span class=rec>DOWN WEEK</span></h2><span class="meta">Sep 7–Sep 13 &middot; Wk9 TAPER</span></header>
+<ul class="days">
+<li class="future"><div class="dcol">Mon<b>7.9</b></div><div><div class="planned">Recovery week: 40–70 min easy ≤165 bpm only, no quality. Pole walk/hike ok. Sleep is the session.</div></div></li>
+<li class="future"><div class="dcol">Tue<b>8.9</b></div><div><div class="planned">Recovery week: 40–70 min easy ≤165 bpm only, no quality. Pole walk/hike ok. Sleep is the session.</div></div></li>
+<li class="future"><div class="dcol">Wed<b>9.9</b></div><div><div class="planned">Recovery week: 40–70 min easy ≤165 bpm only, no quality. Pole walk/hike ok. Sleep is the session.</div></div></li>
+<li class="future"><div class="dcol">Thu<b>10.9</b></div><div><div class="planned">Recovery week: 40–70 min easy ≤165 bpm only, no quality. Pole walk/hike ok. Sleep is the session.</div></div></li>
+<li class="future"><div class="dcol">Fri<b>11.9</b></div><div><div class="planned">Recovery week: 40–70 min easy ≤165 bpm only, no quality. Pole walk/hike ok. Sleep is the session.</div></div></li>
+<li class="future"><div class="dcol">Sat<b>12.9</b></div><div><div class="planned">Recovery week: 40–70 min easy ≤165 bpm only, no quality. Pole walk/hike ok. Sleep is the session.</div></div></li>
+<li class="future"><div class="dcol">Sun<b>13.9</b></div><div><div class="planned">Recovery week: 40–70 min easy ≤165 bpm only, no quality. Pole walk/hike ok. Sleep is the session.</div></div></li>
+</ul></section>
+<section class="wk">
+<header><h2>Week 10 &middot; <span class=rec>DOWN WEEK</span></h2><span class="meta">Sep 14–Sep 16 &middot; RACE WEEK — Cooper Wed 16th</span></header>
+<ul class="days">
+<li class="future"><div class="dcol">Mon<b>14.9</b></div><div><div class="planned">Taper. WED = COOPER TEST: even ~83 s/400, floor 87, surge the last 2 min. Other days: 20–30 min easy + a few strides.</div></div></li>
+<li class="future"><div class="dcol">Tue<b>15.9</b></div><div><div class="planned">Taper. WED = COOPER TEST: even ~83 s/400, floor 87, surge the last 2 min. Other days: 20–30 min easy + a few strides.</div></div></li>
+<li class="future"><div class="dcol">Wed<b>16.9</b></div><div><div class="planned">Taper. WED = COOPER TEST: even ~83 s/400, floor 87, surge the last 2 min. Other days: 20–30 min easy + a few strides.</div></div></li>
+</ul></section>
+<p class="foot">Auto-generated from the plan + your Garmin activities (<code>build_program.py</code>). Actuals fill in as sessions are logged; the plan adapts to recovery data, so future days may shift.</p>
+</div>
+</body>
+</html>

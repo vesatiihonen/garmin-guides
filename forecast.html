@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Forecast vs Goal — Cooper 3500 m</title>
+</head>
+<body>
+<style>
+  :root{--bg:#F7F4EE;--surface:#FFFFFF;--ink:#2A2723;--muted:#6E685E;--ghost:#C4BDB0;
+    --accent:#D9990F;--accent-soft:#F3E4C4;--danger:#C6503F;--good:#4F7A3A;--line:#E7E1D6;--num:#B9B1A2;
+    --sans:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;--mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;}
+  @media (prefers-color-scheme:dark){:root{--bg:#17150F;--surface:#201D16;--ink:#F1EBDE;--muted:#A79F90;
+    --ghost:#5A5344;--accent:#F0B534;--accent-soft:#3A3320;--danger:#E37A6A;--good:#8FBF6E;--line:#322E24;--num:#5C5547;}}
+  :root[data-theme="light"]{--bg:#F7F4EE;--surface:#FFFFFF;--ink:#2A2723;--muted:#6E685E;--ghost:#C4BDB0;
+    --accent:#D9990F;--accent-soft:#F3E4C4;--danger:#C6503F;--good:#4F7A3A;--line:#E7E1D6;--num:#B9B1A2;}
+  :root[data-theme="dark"]{--bg:#17150F;--surface:#201D16;--ink:#F1EBDE;--muted:#A79F90;--ghost:#5A5344;
+    --accent:#F0B534;--accent-soft:#3A3320;--danger:#E37A6A;--good:#8FBF6E;--line:#322E24;--num:#5C5547;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.5;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:920px;margin:0 auto;padding:clamp(20px,4vw,44px)}
+  a.back{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none}
+  a.back:hover{color:var(--accent)}
+  .eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin:1rem 0 .4rem}
+  h1{font-size:clamp(2.1rem,7vw,3.4rem);line-height:.98;letter-spacing:-.02em;font-weight:800;text-transform:uppercase;margin:0;text-wrap:balance}
+  .lede{max-width:64ch;color:var(--muted);margin:1rem 0 0;font-size:1.02rem}
+  .callout{margin:1.2rem 0 0;padding:.7rem 1rem;border-left:4px solid var(--accent);background:color-mix(in srgb,var(--accent) 12%,transparent);
+    font-size:.9rem;border-radius:0 8px 8px 0}
+  .callout b{color:var(--ink)}
+  .wk{margin:2rem 0 0;border:1px solid var(--line);border-radius:14px;background:var(--surface);overflow:hidden}
+  .wk>header{display:flex;flex-wrap:wrap;align-items:baseline;gap:.6rem;justify-content:space-between;
+    padding:.8rem 1.1rem;border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--accent) 6%,transparent)}
+  .wk h2{font-size:1rem;letter-spacing:.06em;text-transform:uppercase;margin:0;font-weight:800}
+  .wk .meta{font-family:var(--mono);font-size:.72rem;color:var(--muted);letter-spacing:.04em}
+  .wk .rec{color:var(--danger);font-weight:700}
+  ul.days{list-style:none;margin:0;padding:.4rem .6rem}
+  ul.days li{display:grid;grid-template-columns:5.2rem 1fr;gap:.7rem;padding:.55rem .5rem;border-bottom:1px solid var(--line);align-items:start}
+  ul.days li:last-child{border-bottom:0}
+  .dcol{font-family:var(--mono);font-size:.78rem;color:var(--muted);padding-top:.1rem}
+  .dcol b{color:var(--ink);display:block;font-size:.9rem}
+  .planned{color:var(--muted);font-size:.92rem}
+  .actual{color:var(--ink);font-size:.92rem}
+  li.past .dcol b{color:var(--muted)}
+  li.today{background:color-mix(in srgb,var(--accent) 14%,transparent);border-radius:10px}
+  li.today .dcol b,li.today .actual,li.today .planned{color:var(--ink);font-weight:700}
+  li.today .tag-today{display:inline-block;font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;
+    background:var(--accent);color:#1b1710;padding:.05rem .4rem;border-radius:5px;margin-left:.3rem;vertical-align:middle}
+  .chips{display:flex;flex-wrap:wrap;gap:.3rem;margin:.3rem 0 0}
+  .chip{font-family:var(--mono);font-size:.68rem;color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:.08rem .4rem}
+  .chip.thr{color:var(--danger);border-color:color-mix(in srgb,var(--danger) 45%,var(--line))}
+  .chip.easy{color:var(--good);border-color:color-mix(in srgb,var(--good) 40%,var(--line))}
+  .miss{color:var(--ghost);font-size:.9rem;font-style:italic}
+  table.tiers{width:100%;border-collapse:collapse;margin:1.4rem 0 0;font-size:.9rem}
+  table.tiers th,table.tiers td{text-align:left;padding:.5rem .6rem;border-bottom:1px solid var(--line)}
+  table.tiers th{font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  table.tiers tr.goal{background:color-mix(in srgb,var(--accent) 12%,transparent);font-weight:700}
+  .meters{margin:1.4rem 0 0;display:grid;gap:1rem}
+  .meter .top{display:flex;justify-content:space-between;align-items:baseline;gap:.6rem}
+  .meter .name{font-weight:700}
+  .meter .val{font-family:var(--mono);font-size:.76rem;color:var(--muted)}
+  .track{position:relative;height:12px;background:var(--line);border-radius:7px;margin:.35rem 0 .3rem;overflow:hidden}
+  .fill{position:absolute;left:0;top:0;bottom:0;background:var(--accent);border-radius:7px}
+  .fill.over{background:var(--good)}
+  .target{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--ink)}
+  .meter .note{color:var(--muted);font-size:.84rem;margin:0}
+  figure.traj{margin:1.4rem 0 0}
+  figure.traj svg{width:100%;height:auto;display:block}
+  .axis{stroke:var(--line);stroke-width:1}
+  .gridln{stroke:var(--line);stroke-width:1;stroke-dasharray:2 6;opacity:.7}
+  .tline{stroke:var(--accent);stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+  .tdot{fill:var(--surface);stroke:var(--accent);stroke-width:2}
+  .goalln{stroke:var(--danger);stroke-width:1.5;stroke-dasharray:5 4}
+  .lbl{font-family:var(--mono);font-size:10px;fill:var(--muted)}
+  .lbl.ink{fill:var(--ink);font-weight:700}
+  figcaption{color:var(--muted);font-size:.82rem;margin:.6rem 0 0}
+  .foot{margin-top:2.4rem;border-top:1px solid var(--line);padding-top:1rem;color:var(--muted);font-size:.82rem;max-width:70ch}
+</style>
+<div class="wrap">
+<a class="back" href="index.html">&larr; guides</a>
+<p class="eyebrow">Forecast &middot; vs 3500 m</p>
+<h1>Forecast vs Goal</h1>
+<p class="lede">Where the training is projected to take the Cooper number by <b>Sep 16</b> (9 weeks out), and how the underlying attributes stack up against what 3500&nbsp;m requires. <b>This is a model, not a measurement</b> — it updates as real interval and time-trial results land.</p>
+<p class="eyebrow" style="margin-top:2rem">Projected Cooper trajectory</p>
+<figure class="traj">
+<svg viewBox="0 0 720 300" role="img" aria-label="Projected Cooper distance from ~3200 m now to 3500 m on race day"><line class="gridln" x1="44" y1="235" x2="704" y2="235"/><text class="lbl" x="38" y="238" text-anchor="end">3200</text><line class="gridln" x1="44" y1="174" x2="704" y2="174"/><text class="lbl" x="38" y="177" text-anchor="end">3300</text><line class="gridln" x1="44" y1="112" x2="704" y2="112"/><text class="lbl" x="38" y="115" text-anchor="end">3400</text><line class="gridln" x1="44" y1="51" x2="704" y2="51"/><text class="lbl" x="38" y="54" text-anchor="end">3500</text><line class="goalln" x1="44" y1="51" x2="704" y2="51"/><text class="lbl" x="704" y="46" text-anchor="end" style="fill:var(--danger)">goal 3500 m</text><polyline class="tline" points="44.0,235.2 110.0,229.1 176.0,222.9 242.0,198.3 308.0,161.4 374.0,124.6 440.0,118.4 506.0,87.7 572.0,63.1 638.0,56.9 704.0,50.8"/><circle class="tdot" cx="44.0" cy="235.2" r="4.5"/><text class="lbl" x="44.0" y="282" text-anchor="middle">now</text><circle class="tdot" cx="110.0" cy="229.1" r="4.5"/><text class="lbl" x="110.0" y="282" text-anchor="middle">w1</text><circle class="tdot" cx="176.0" cy="222.9" r="4.5"/><text class="lbl" x="176.0" y="282" text-anchor="middle">w2</text><circle class="tdot" cx="242.0" cy="198.3" r="4.5"/><text class="lbl" x="242.0" y="282" text-anchor="middle">w3</text><circle class="tdot" cx="308.0" cy="161.4" r="4.5"/><text class="lbl" x="308.0" y="282" text-anchor="middle">w4</text><circle class="tdot" cx="374.0" cy="124.6" r="4.5"/><text class="lbl" x="374.0" y="282" text-anchor="middle">w5</text><circle class="tdot" cx="440.0" cy="118.4" r="4.5"/><text class="lbl" x="440.0" y="282" text-anchor="middle">w6</text><circle class="tdot" cx="506.0" cy="87.7" r="4.5"/><text class="lbl" x="506.0" y="282" text-anchor="middle">w7</text><circle class="tdot" cx="572.0" cy="63.1" r="4.5"/><text class="lbl" x="572.0" y="282" text-anchor="middle">w8</text><circle class="tdot" cx="638.0" cy="56.9" r="4.5"/><text class="lbl" x="638.0" y="282" text-anchor="middle">w9</text><circle class="tdot" cx="704.0" cy="50.8" r="4.5"/><text class="lbl" x="704.0" y="282" text-anchor="middle">race</text><text class="lbl ink" x="44.0" y="225" text-anchor="start">~3200</text><text class="lbl ink" x="704.0" y="41" text-anchor="end">3500+</text></svg>
+<figcaption>Estimated all-out Cooper distance, end of each week. Flat spots are the planned recovery weeks (Croatia w2, w6) that convert load into fitness; the steep parts are the VO2max (w4–5) and race-specific (w7–8) blocks. Data: now 3200 m, w1 3210 m, w2 3220 m, w3 3260 m, w4 3320 m, w5 3380 m, w6 3390 m, w7 3440 m, w8 3480 m, w9 3490 m, race 3500 m.</figcaption>
+</figure>
+<p class="eyebrow" style="margin-top:2rem">Goal tiers</p>
+<table class="tiers"><thead><tr><th>Tier</th><th>Distance</th><th>Pace /400</th><th>~VO2max</th></tr></thead><tbody>
+<tr class=""><td>Minimum (floor)</td><td>3300 m</td><td>87 s</td><td>~62</td></tr><tr class=""><td>Target</td><td>3450 m</td><td>83.5 s</td><td>~66</td></tr><tr class="goal"><td>Stretch — beat friend</td><td>3500 m</td><td>82 s</td><td>~67</td></tr><tr class=""><td>Reach</td><td>3600 m+</td><td>80 s</td><td>~69</td></tr>
+</tbody></table>
+<p class="eyebrow" style="margin-top:2rem">Attributes vs race requirement</p>
+<p class="lede" style="margin-top:.4rem">The vertical tick = what race day needs (100%). Speed sits past it; durability is the gap the block is built to close.</p>
+<div class="meters">
+<div class="meter"><div class="top"><span class="name">Speed (400 m)</span><span class="val">69 s vs 82 s needed</span></div><div class="track"><div class="fill over" style="width:100%"></div><div class="target" style="left:100%"></div></div><p class="note">Big reserve — single-lap max is ~16% faster than goal pace. Not the limiter.</p></div><div class="meter"><div class="top"><span class="name">Anaerobic / finish</span><span class="val">800 m PB 2:05, strong surge</span></div><div class="track"><div class="fill over" style="width:100%"></div><div class="target" style="left:100%"></div></div><p class="note">Fast-twitch + finishing gear intact from XC/800 m background. Wins the last 2 min.</p></div><div class="meter"><div class="top"><span class="name">Aerobic base / VO2max</span><span class="val">~59 now → ~67 target</span></div><div class="track"><div class="fill" style="width:88%"></div><div class="target" style="left:100%"></div></div><p class="note">Climbing. The wk4–5 VO2max block is what lifts this toward the 3500 m requirement.</p></div><div class="meter"><div class="top"><span class="name">Aerobic durability</span><span class="val">holds 82 s/400 for ~1 km, need 3.5 km</span></div><div class="track"><div class="fill" style="width:48%"></div><div class="target" style="left:100%"></div></div><p class="note">THE build. Extending goal-pace duration from 1 km to 3.5 km is the whole job.</p></div><div class="meter"><div class="top"><span class="name">Strength / tissue</span><span class="val">rebuilding post-meniscus</span></div><div class="track"><div class="fill" style="width:65%"></div><div class="target" style="left:100%"></div></div><p class="note">Calves / hamstrings / core still coming back; 2×/wk strength + hill sprints protect it.</p></div>
+</div>
+<p class="foot">Model assumptions: current all-out Cooper ~3200&nbsp;m (speed well ahead, aerobic durability the limiter). VO2max re-estimated from performances, not Garmin’s ~50s. Re-derive after any 1000/2000&nbsp;m time trial and this page sharpens. Generated by <code>build_program.py</code>.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Fuel &amp; Hydration</title>
+</head>
+<body>
+<style>
+  :root{--bg:#F7F4EE;--surface:#FFFFFF;--ink:#2A2723;--muted:#6E685E;--figure:#33302B;
+    --ghost:#C4BDB0;--accent:#D9990F;--danger:#C6503F;--good:#4F7A3A;--line:#E7E1D6;--num:#B9B1A2;
+    --sans:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;--mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;}
+  @media (prefers-color-scheme:dark){:root{--bg:#17150F;--surface:#201D16;--ink:#F1EBDE;--muted:#A79F90;
+    --figure:#E7E0D1;--ghost:#5A5344;--accent:#F0B534;--danger:#E37A6A;--good:#8FBF6E;--line:#322E24;--num:#5C5547;}}
+  :root[data-theme="light"]{--bg:#F7F4EE;--surface:#FFFFFF;--ink:#2A2723;--muted:#6E685E;--accent:#D9990F;--danger:#C6503F;--good:#4F7A3A;--line:#E7E1D6;}
+  :root[data-theme="dark"]{--bg:#17150F;--surface:#201D16;--ink:#F1EBDE;--muted:#A79F90;--accent:#F0B534;--danger:#E37A6A;--good:#8FBF6E;--line:#322E24;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.5;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1040px;margin:0 auto;padding:clamp(20px,4vw,44px)}
+  .eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin:0 0 .5rem}
+  h1{font-size:clamp(2.4rem,8vw,4rem);line-height:.94;letter-spacing:-.02em;font-weight:800;text-transform:uppercase;margin:0;text-wrap:balance}
+  h1 .plus{color:var(--accent)}
+  .lede{max-width:64ch;color:var(--muted);margin:1rem 0 0;font-size:1.02rem}
+  .callout{margin:1.2rem 0 0;padding:.7rem 1rem;border-left:4px solid var(--accent);background:color-mix(in srgb,var(--accent) 12%,transparent);font-size:.92rem;border-radius:0 8px 8px 0}
+  .callout.heat{border-color:var(--danger);background:color-mix(in srgb,var(--danger) 12%,transparent)}
+  .callout b{color:var(--ink)}
+  .section-h{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;margin:2.4rem 0 1rem;padding-bottom:.5rem;border-bottom:2px solid var(--ink)}
+  .section-h h2{font-size:1.1rem;letter-spacing:.14em;text-transform:uppercase;margin:0;font-weight:800}
+  .section-h .t{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;color:var(--muted);text-transform:uppercase}
+  .grid{display:grid;grid-template-columns:1fr;gap:16px}
+  @media(min-width:640px){.grid{grid-template-columns:1fr 1fr}}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px 18px}
+  .card h3{margin:0;font-size:1.15rem;letter-spacing:-.01em}
+  .card .dose{font-family:var(--mono);font-size:.76rem;color:var(--accent);margin:.3rem 0 .5rem}
+  .card ul{margin:0;padding-left:1.05rem;font-size:.92rem}
+  .card li{margin:.2rem 0}
+  .card li b{color:var(--ink)}
+  .time{display:grid;grid-template-columns:auto 1fr;gap:0 1rem;margin:1rem 0 0}
+  .time dt{font-family:var(--mono);font-size:.78rem;color:var(--accent);padding:.55rem 0;border-top:1px solid var(--line);white-space:nowrap}
+  .time dd{margin:0;padding:.55rem 0;border-top:1px solid var(--line);font-size:.94rem}
+  .time dt:first-of-type,.time dd:first-of-type{border-top:0}
+  .two{display:grid;grid-template-columns:1fr;gap:16px;margin:1rem 0 0}
+  @media(min-width:640px){.two{grid-template-columns:1fr 1fr}}
+  .panel{border:1px solid var(--line);border-radius:14px;padding:16px 18px;background:var(--surface)}
+  .panel.up{border-top:4px solid var(--good)}
+  .panel.down{border-top:4px solid var(--accent)}
+  .panel h3{margin:0 0 .3rem;font-size:1.05rem}
+  .panel .tag{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .panel ul{margin:.5rem 0 0;padding-left:1.05rem;font-size:.92rem}
+  .panel li{margin:.2rem 0}
+  .foot{margin-top:2.4rem;border-top:1px solid var(--line);padding-top:1.2rem;color:var(--muted);font-size:.9rem;display:grid;gap:.5rem;max-width:74ch}
+  .foot b{color:var(--ink)}
+</style>
+
+<div style="max-width:1040px;margin:0 auto;padding:16px clamp(20px,4vw,44px) 0"><a href="index.html" style="font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#8a8a8a;text-decoration:none">&larr; All guides</a></div>
+<div class="wrap">
+  <p class="eyebrow">Standing reference · fuel the work, not the wait</p>
+  <h1>Fuel <span class="plus">&amp;</span> Hydration</h1>
+  <p class="lede">Two jobs at once: lose weight (→ 70–71 kg) <b>and</b> hit the two quality
+    sessions fully fuelled. The trick is <b>timing and periodising</b>, not just eating less —
+    carbs around the hard work, the deficit from the easy days, protein and fluid every day.</p>
+
+  <div class="callout"><b>The one rule:</b> <b>fuel for the work required.</b> Carbs go
+    <b>up</b> on quality/long days (you can't lose weight if you can't do the session that builds
+    the engine) and <b>down</b> on easy/rest days (where the fat loss quietly happens). Protein
+    and hydration stay high every day.</div>
+
+  <div class="section-h"><h2>Daily rhythm</h2><span class="t">~136 g protein · 4 feeds</span></div>
+  <dl class="time">
+    <dt>On waking</dt><dd><b>0.5 L water</b> + a pinch of salt (overnight you dehydrate). Coffee is fine — it's not the dehydrator it's rumoured to be.</dd>
+    <dt>Pre-AM run</dt><dd>Easy/short: run fasted is fine. Long or quality: a small carb hit (banana, toast+honey, ~30–40 g) 20–40 min before.</dd>
+    <dt>Post-session</dt><dd><b>Within 30–60 min:</b> ~30 g protein + carbs (bigger after quality/long). This is the recovery window — don't skip it to "save calories".</dd>
+    <dt>Lunch</dt><dd>Protein ~30–40 g + veg + carbs sized to the day (more on a hard day). Your biggest carb meal sits nearest the session.</dd>
+    <dt>Afternoon</dt><dd>Protein snack if there's a gap &gt;4 h (Greek yoghurt, quark, skyr). Keeps muscle protected in the deficit.</dd>
+    <dt>Dinner</dt><dd>Protein + veg-forward; carbs light on easy/rest days. <b>Finish ≥3 h before bed</b> — late heavy meals wreck deep sleep, your #1 limiter.</dd>
+    <dt>Evening</dt><dd>Hungry late? Casein-type protein (quark/cottage cheese) or a small light snack — not a second dinner. Caffeine cut-off ~8 h before bed.</dd>
+  </dl>
+
+  <div class="section-h"><h2>Fuel by day type</h2><span class="t">carb periodisation</span></div>
+  <div class="two">
+    <div class="panel up"><span class="tag">Quality / long day</span>
+      <h3>Carbs UP</h3>
+      <ul>
+        <li><b>Carbs before</b> the session, and <b>during</b> if it's &gt;90 min (30–60 g/h — gel, sports drink, dates).</li>
+        <li><b>Protein + carbs after</b>, promptly. Refill the tank you just used.</li>
+        <li>Total carbs ~4–6 g/kg on these days (~300–450 g). This is not the day to cut.</li>
+        <li>Eat to <b>hit the session</b>; a blunted quality day is a wasted week.</li>
+      </ul>
+    </div>
+    <div class="panel down"><span class="tag">Easy / rest day</span>
+      <h3>Carbs DOWN</h3>
+      <ul>
+        <li>Carbs ~2–3 g/kg, weighted to earlier in the day. This is where the <b>deficit lives</b>.</li>
+        <li>Protein stays high (~136 g) — muscle is protected by protein, not by carbs.</li>
+        <li>Fat fills the rest: olive oil, nuts, fish, eggs. Satiating, sleep-friendly.</li>
+        <li>Easy runs can be run lower-carb / partly fasted to nudge fat adaptation.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-h"><h2>Hydration</h2><span class="t">Garmin tracks the goal + sweat</span></div>
+  <div class="grid">
+    <article class="card"><h3>Daily target</h3>
+      <p class="dose">Garmin goal ~3–4 L (auto-adjusts for load + heat)</p>
+      <ul>
+        <li><b>Log intake on the watch</b> (hold the upper button → Hydration) so the goal/sweat data means something.</li>
+        <li>Steady sips all day beats chugging. Urine <b>pale straw</b> = on track; dark = behind.</li>
+        <li>Weigh before/after a big session if unsure: <b>1 kg lost ≈ 1 L to replace.</b></li>
+      </ul>
+    </article>
+    <article class="card"><h3>Around a session</h3>
+      <p class="dose">pre · during · post</p>
+      <ul>
+        <li><b>Pre:</b> 0.3–0.5 L in the 2 h before; top up right before an AM session.</li>
+        <li><b>During:</b> 0.4–0.8 L/h when hot or &gt;60 min; sip, don't flood.</li>
+        <li><b>Post:</b> replace ~150% of what you lost over the next few hours, with sodium.</li>
+      </ul>
+    </article>
+  </div>
+  <div class="callout heat"><b>In heat (and unacclimatised):</b> sweat and sodium losses jump.
+    <b>Add electrolytes</b> (500–1000 mg sodium per litre) whenever sweat &gt;1 L or it's hot,
+    train <b>early</b>, pre-cool with cold fluid, and judge effort by <b>HR/feel, not pace</b>.
+    Salt your food generously — in a deficit + heat you are not over-salted.</div>
+
+  <div class="section-h"><h2>Sleep, alcohol &amp; the deficit</h2><span class="t">where it's won or lost</span></div>
+  <div class="grid">
+    <article class="card"><h3>Protect sleep</h3>
+      <ul>
+        <li>Last big meal <b>≥3 h before bed</b>; late digestion cuts deep sleep.</li>
+        <li>Caffeine cut-off ~8 h before target bedtime.</li>
+        <li>Consistent bedtime beats total hours — the single highest-ROI change you can make.</li>
+      </ul>
+    </article>
+    <article class="card"><h3>Alcohol &amp; social</h3>
+      <ul>
+        <li>A drink with friends is fine — just know it <b>suppresses deep sleep and recovery</b> and stalls fat loss for that night.</li>
+        <li>Alternate each drink with water; add electrolytes before bed.</li>
+        <li>Never the night before a quality session or a long run.</li>
+      </ul>
+    </article>
+  </div>
+
+  <div class="foot">
+    <p><b>Your numbers:</b> protein ≈ 1.8 g/kg body weight, spread across ~4 feeds; the daily
+      calorie target arrives in the coach email (TDEE − 550, softer − 250 on recovery weeks);
+      hydration ~3–4 L, more in heat.</p>
+    <p><b>Why timing beats "eat less":</b> carbs around quality keep the sessions sharp, protein
+      spread keeps muscle in the deficit, and the calorie gap comes from the easy days — so you
+      lose fat <b>and</b> the engine still grows. Each kg off ≈ +37 m of Cooper distance.</p>
+    <p><b>Track it:</b> log water on the watch and step on the scale weekly (from Aug 1) — the coach
+      reads both and steers from the trend.</p>
+  </div>
+</div>
+
+</body>
+</html>

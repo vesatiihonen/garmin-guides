@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Last 3 Days — recovery + training</title>
+</head>
+<body>
+<style>
+  :root{--bg:#F7F4EE;--surface:#FFFFFF;--ink:#2A2723;--muted:#6E685E;--ghost:#C4BDB0;
+    --accent:#D9990F;--accent-soft:#F3E4C4;--danger:#C6503F;--good:#4F7A3A;--line:#E7E1D6;--num:#B9B1A2;
+    --sans:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;--mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;}
+  @media (prefers-color-scheme:dark){:root{--bg:#17150F;--surface:#201D16;--ink:#F1EBDE;--muted:#A79F90;
+    --ghost:#5A5344;--accent:#F0B534;--accent-soft:#3A3320;--danger:#E37A6A;--good:#8FBF6E;--line:#322E24;--num:#5C5547;}}
+  :root[data-theme="light"]{--bg:#F7F4EE;--surface:#FFFFFF;--ink:#2A2723;--muted:#6E685E;--ghost:#C4BDB0;
+    --accent:#D9990F;--accent-soft:#F3E4C4;--danger:#C6503F;--good:#4F7A3A;--line:#E7E1D6;--num:#B9B1A2;}
+  :root[data-theme="dark"]{--bg:#17150F;--surface:#201D16;--ink:#F1EBDE;--muted:#A79F90;--ghost:#5A5344;
+    --accent:#F0B534;--accent-soft:#3A3320;--danger:#E37A6A;--good:#8FBF6E;--line:#322E24;--num:#5C5547;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.5;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:920px;margin:0 auto;padding:clamp(20px,4vw,44px)}
+  a.back{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none}
+  a.back:hover{color:var(--accent)}
+  .eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin:1rem 0 .4rem}
+  h1{font-size:clamp(2.1rem,7vw,3.4rem);line-height:.98;letter-spacing:-.02em;font-weight:800;text-transform:uppercase;margin:0;text-wrap:balance}
+  .lede{max-width:64ch;color:var(--muted);margin:1rem 0 0;font-size:1.02rem}
+  .callout{margin:1.2rem 0 0;padding:.7rem 1rem;border-left:4px solid var(--accent);background:color-mix(in srgb,var(--accent) 12%,transparent);
+    font-size:.9rem;border-radius:0 8px 8px 0}
+  .callout b{color:var(--ink)}
+  .wk{margin:2rem 0 0;border:1px solid var(--line);border-radius:14px;background:var(--surface);overflow:hidden}
+  .wk>header{display:flex;flex-wrap:wrap;align-items:baseline;gap:.6rem;justify-content:space-between;
+    padding:.8rem 1.1rem;border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--accent) 6%,transparent)}
+  .wk h2{font-size:1rem;letter-spacing:.06em;text-transform:uppercase;margin:0;font-weight:800}
+  .wk .meta{font-family:var(--mono);font-size:.72rem;color:var(--muted);letter-spacing:.04em}
+  .wk .rec{color:var(--danger);font-weight:700}
+  ul.days{list-style:none;margin:0;padding:.4rem .6rem}
+  ul.days li{display:grid;grid-template-columns:5.2rem 1fr;gap:.7rem;padding:.55rem .5rem;border-bottom:1px solid var(--line);align-items:start}
+  ul.days li:last-child{border-bottom:0}
+  .dcol{font-family:var(--mono);font-size:.78rem;color:var(--muted);padding-top:.1rem}
+  .dcol b{color:var(--ink);display:block;font-size:.9rem}
+  .planned{color:var(--muted);font-size:.92rem}
+  .actual{color:var(--ink);font-size:.92rem}
+  li.past .dcol b{color:var(--muted)}
+  li.today{background:color-mix(in srgb,var(--accent) 14%,transparent);border-radius:10px}
+  li.today .dcol b,li.today .actual,li.today .planned{color:var(--ink);font-weight:700}
+  li.today .tag-today{display:inline-block;font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;
+    background:var(--accent);color:#1b1710;padding:.05rem .4rem;border-radius:5px;margin-left:.3rem;vertical-align:middle}
+  .chips{display:flex;flex-wrap:wrap;gap:.3rem;margin:.3rem 0 0}
+  .chip{font-family:var(--mono);font-size:.68rem;color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:.08rem .4rem}
+  .chip.thr{color:var(--danger);border-color:color-mix(in srgb,var(--danger) 45%,var(--line))}
+  .chip.easy{color:var(--good);border-color:color-mix(in srgb,var(--good) 40%,var(--line))}
+  .miss{color:var(--ghost);font-size:.9rem;font-style:italic}
+  table.tiers{width:100%;border-collapse:collapse;margin:1.4rem 0 0;font-size:.9rem}
+  table.tiers th,table.tiers td{text-align:left;padding:.5rem .6rem;border-bottom:1px solid var(--line)}
+  table.tiers th{font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  table.tiers tr.goal{background:color-mix(in srgb,var(--accent) 12%,transparent);font-weight:700}
+  .meters{margin:1.4rem 0 0;display:grid;gap:1rem}
+  .meter .top{display:flex;justify-content:space-between;align-items:baseline;gap:.6rem}
+  .meter .name{font-weight:700}
+  .meter .val{font-family:var(--mono);font-size:.76rem;color:var(--muted)}
+  .track{position:relative;height:12px;background:var(--line);border-radius:7px;margin:.35rem 0 .3rem;overflow:hidden}
+  .fill{position:absolute;left:0;top:0;bottom:0;background:var(--accent);border-radius:7px}
+  .fill.over{background:var(--good)}
+  .target{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--ink)}
+  .meter .note{color:var(--muted);font-size:.84rem;margin:0}
+  figure.traj{margin:1.4rem 0 0}
+  figure.traj svg{width:100%;height:auto;display:block}
+  .axis{stroke:var(--line);stroke-width:1}
+  .gridln{stroke:var(--line);stroke-width:1;stroke-dasharray:2 6;opacity:.7}
+  .tline{stroke:var(--accent);stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+  .tdot{fill:var(--surface);stroke:var(--accent);stroke-width:2}
+  .goalln{stroke:var(--danger);stroke-width:1.5;stroke-dasharray:5 4}
+  .lbl{font-family:var(--mono);font-size:10px;fill:var(--muted)}
+  .lbl.ink{fill:var(--ink);font-weight:700}
+  figcaption{color:var(--muted);font-size:.82rem;margin:.6rem 0 0}
+  .foot{margin-top:2.4rem;border-top:1px solid var(--line);padding-top:1rem;color:var(--muted);font-size:.82rem;max-width:70ch}
+</style>
+<style>
+  .banner{margin:1.4rem 0 0;border-radius:14px;padding:1rem 1.2rem;border:1px solid var(--line)}
+  .banner.go{background:color-mix(in srgb,var(--good) 16%,transparent);border-color:var(--good)}
+  .banner.ease{background:color-mix(in srgb,var(--accent) 16%,transparent);border-color:var(--accent)}
+  .banner.rest,.banner.nodata{background:color-mix(in srgb,var(--danger) 14%,transparent);border-color:var(--danger)}
+  .banner h2{margin:0;font-size:1.25rem;letter-spacing:-.01em}
+  .banner p{margin:.35rem 0 0;color:var(--muted);font-size:.92rem}
+  .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin:1.2rem 0 0}
+  .tile{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:.7rem .9rem}
+  .tile .k{font-family:var(--mono);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  .tile .v{font-size:1.5rem;font-weight:800;letter-spacing:-.02em;margin:.15rem 0 0}
+  .tile .s{font-size:.74rem;color:var(--muted)}
+  .sess{margin:1.4rem 0 0;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1rem 1.2rem}
+  .sess .k{font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+  .sess p{margin:.3rem 0 0}
+  .sess p.mut{color:var(--muted);font-size:.9rem}
+  .fresh{font-family:var(--mono);font-size:.7rem;color:var(--muted);margin:.8rem 0 0}
+</style>
+<style>
+  .snap{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin:1.2rem 0 0}
+  .snap .tile .arw{font-family:var(--mono);font-size:.9rem}
+  .daycard{margin:1rem 0 0;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:.9rem 1.05rem}
+  .daycard>header{display:flex;align-items:baseline;justify-content:space-between;gap:.6rem;margin:0 0 .55rem}
+  .daycard h3{margin:0;font-size:1.02rem;letter-spacing:-.01em}
+  .daycard h3 .wd{font-family:var(--mono);font-size:.72rem;color:var(--muted);margin-left:.4rem;letter-spacing:.04em}
+  .vtag{font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;padding:.14rem .5rem;border-radius:6px;text-transform:uppercase;font-weight:700;white-space:nowrap}
+  .vtag.go{background:color-mix(in srgb,var(--good) 22%,transparent);color:var(--good)}
+  .vtag.ease{background:color-mix(in srgb,var(--accent) 24%,transparent);color:var(--accent)}
+  .vtag.rest,.vtag.nodata{background:color-mix(in srgb,var(--danger) 20%,transparent);color:var(--danger)}
+  .minit{display:grid;grid-template-columns:repeat(auto-fit,minmax(84px,1fr));gap:8px}
+  .mt{background:color-mix(in srgb,var(--accent) 4%,transparent);border:1px solid var(--line);border-radius:10px;padding:.45rem .55rem}
+  .mt .k{font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .mt .v{font-size:1.12rem;font-weight:800;margin:.08rem 0 0;letter-spacing:-.02em}
+  .mt .s{font-size:.66rem;color:var(--muted)}
+  .actwrap{margin:.65rem 0 0;padding:.6rem 0 0;border-top:1px dashed var(--line);display:grid;gap:.5rem}
+  .eff{margin:.5rem 0 0;display:grid;gap:.5rem}
+  .effrow{display:grid;grid-template-columns:5.4rem 1fr 3rem;gap:.6rem;align-items:center;font-size:.82rem}
+  .effrow .lab{font-family:var(--mono);font-size:.72rem;color:var(--muted)}
+  .effrow .num{font-family:var(--mono);font-weight:700;text-align:right}
+  .flags{margin:.7rem 0 0;padding:0;list-style:none;display:grid;gap:.55rem}
+  .flags li{display:grid;grid-template-columns:auto 1fr;gap:.55rem;align-items:start;font-size:.92rem}
+  .dot{width:9px;height:9px;border-radius:50%;margin-top:.42rem;flex:none}
+  .dot.good{background:var(--good)} .dot.warn{background:var(--accent)}
+  .dot.bad{background:var(--danger)} .dot.neutral{background:var(--ghost)}
+</style>
+<div class="wrap">
+<a class="back" href="index.html">&larr; guides</a>
+<p class="eyebrow">Coach &middot; review</p>
+<h1>Last 3 Days</h1>
+<p class="lede">Recovery and training side by side for the last three days, so you can see where you are and catch patterns early. Verdicts are the morning recovery read; efficiency is your aerobic signal.</p>
+<div class="snap tiles"><div class="tile"><div class="k">Sleep avg</div><div class="v">6.3 h <span class="arw" style="color:var(--muted)"></span></div><div class="s">3-night mean</div></div><div class="tile"><div class="k">Readiness</div><div class="v">— <span class="arw" style="color:var(--muted)">→</span></div><div class="s">from 47</div></div><div class="tile"><div class="k">HRV</div><div class="v">— <span class="arw" style="color:var(--muted)"></span></div><div class="s">latest status</div></div><div class="tile"><div class="k">Training</div><div class="v">150 min <span class="arw" style="color:var(--muted)"></span></div><div class="s">3-day total</div></div><div class="tile"><div class="k">Run</div><div class="v">19.0 km <span class="arw" style="color:var(--muted)"></span></div><div class="s">+372 m vert</div></div><div class="tile"><div class="k">Session kcal</div><div class="v">2018 <span class="arw" style="color:var(--muted)"></span></div><div class="s">3-day total</div></div></div>
+<div class="sess"><span class="k">Aerobic efficiency — m/beat</span><p class="mut" style="margin:.3rem 0 .2rem">No flat easy runs in the window, so the values below are terrain-affected (hills lower m/beat) — compare like-for-like. Efficiency trends cleanest on easy runs.</p><div class="eff"><div class="effrow"><span class="lab">Wed 22.7 · thr</span><div class="track"><div class="fill" style="width:30%"></div></div><span class="num">1.20</span></div><div class="effrow"><span class="lab">Tue 21.7 · thr</span><div class="track"><div class="fill" style="width:46%"></div></div><span class="num">1.28</span></div></div></div>
+<div class="sess"><span class="k">Patterns to react to</span><ul class="flags"><li><span class="dot warn"></span><span>Short sleep (&lt;6 h) on Mon — sleep is the #1 recovery limiter.</span></li><li><span class="dot neutral"></span><span>2 aerobic-threshold run(s) logged — quality is landing (mind 48 h between hard days).</span></li><li><span class="dot warn"></span><span>Resting HR 58 is 3 above the 7-day avg (55) — possible fatigue, heat or dehydration.</span></li></ul></div>
+<p class="eyebrow" style="margin-top:2rem">Day by day</p>
+<div class="daycard"><header><h3>22.7<span class="wd">Wed · TODAY</span></h3><span class="vtag rest">RECOVER</span></header><div class="minit"><div class="mt"><div class="k">Sleep</div><div class="v">—</div><div class="s">score —</div></div><div class="mt"><div class="k">HRV</div><div class="v">—</div><div class="s">status</div></div><div class="mt"><div class="k">Readiness</div><div class="v">—</div><div class="s">—</div></div><div class="mt"><div class="k">Body Batt</div><div class="v">20</div><div class="s">peak</div></div><div class="mt"><div class="k">Rest HR</div><div class="v">58</div><div class="s">7d 55</div></div></div><div class="actwrap"><div><div class="actual">Open Water Swimming</div><div class="chips"><span class="chip">19 min</span><span class="chip">253 kcal</span><span class="chip">HR 143</span></div></div><div><div class="actual">Running</div><div class="chips"><span class="chip">11.5 km</span><span class="chip">63 min</span><span class="chip">HR 152</span><span class="chip">+280 m</span><span class="chip">855 kcal</span><span class="chip thr">aerobic threshold</span></div></div></div></div><div class="daycard"><header><h3>21.7<span class="wd">Tue</span></h3><span class="vtag go">GO</span></header><div class="minit"><div class="mt"><div class="k">Sleep</div><div class="v">8.1 h</div><div class="s">score 77</div></div><div class="mt"><div class="k">HRV</div><div class="v">46</div><div class="s">vs 37 wk</div></div><div class="mt"><div class="k">Readiness</div><div class="v">50</div><div class="s">moderate</div></div><div class="mt"><div class="k">Body Batt</div><div class="v">50</div><div class="s">peak</div></div><div class="mt"><div class="k">Rest HR</div><div class="v">58</div><div class="s">7d 55</div></div></div><div class="actwrap"><div><div class="actual">Open Water Swimming</div><div class="chips"><span class="chip">27 min</span><span class="chip">376 kcal</span><span class="chip">HR 147</span></div></div><div><div class="actual">Running</div><div class="chips"><span class="chip">7.5 km</span><span class="chip">41 min</span><span class="chip">HR 143</span><span class="chip">+92 m</span><span class="chip">534 kcal</span><span class="chip thr">aerobic threshold</span></div></div></div></div><div class="daycard"><header><h3>20.7<span class="wd">Mon</span></h3><span class="vtag rest">RECOVER</span></header><div class="minit"><div class="mt"><div class="k">Sleep</div><div class="v">4.5 h</div><div class="s">score 59</div></div><div class="mt"><div class="k">HRV</div><div class="v">52</div><div class="s">vs 36 wk</div></div><div class="mt"><div class="k">Readiness</div><div class="v">47</div><div class="s">low</div></div><div class="mt"><div class="k">Body Batt</div><div class="v">70</div><div class="s">peak</div></div><div class="mt"><div class="k">Rest HR</div><div class="v">51</div><div class="s">7d 54</div></div></div><div class="actwrap"><div class="miss">no recorded activity</div></div></div>
+<p class="fresh">Newest data: 2026-07-22 &middot; built 2026-07-22 20:13 UTC &middot; refreshes after each data sync.</p>
+<p class="foot">Auto-generated from your Garmin wellness + activities (<code>build_program.py</code>). Efficiency (m/beat = speed×60÷HR) and the easy/aerobic-threshold labels use the same rule as the analysis report. Log how sessions felt by replying to the coach email — it sharpens the reads.</p>
+</div>
+</body>
+</html>

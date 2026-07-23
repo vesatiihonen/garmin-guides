@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
-<title>Coach Today</title>
+<title>Today — the whole day</title>
 </head>
 <body>
 <style>
@@ -94,18 +94,35 @@
   .sess p.mut{color:var(--muted);font-size:.9rem}
   .fresh{font-family:var(--mono);font-size:.7rem;color:var(--muted);margin:.8rem 0 0}
 </style>
+<style>
+  .day-list{margin:1.3rem 0 0;display:grid;gap:12px}
+  .dsess{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--line);border-radius:14px;padding:.85rem 1.05rem}
+  .dsess.run,.dsess.quality{border-left-color:var(--accent)}
+  .dsess.drills,.dsess.strength{border-left-color:var(--good)}
+  .dsess.recovery,.dsess.rest{border-left-color:var(--danger)}
+  .dsess .kick{display:flex;justify-content:space-between;align-items:baseline;gap:.6rem}
+  .dsess .lab{font-family:var(--mono);font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:700}
+  .dsess .min{font-family:var(--mono);font-size:.66rem;color:var(--muted);white-space:nowrap}
+  .dsess h3{margin:.2rem 0 0;font-size:1.02rem;letter-spacing:-.01em}
+  .dsess ul{margin:.4rem 0 0;padding-left:1.05rem;display:grid;gap:.25rem;font-size:.9rem}
+  .dsess .warmnote{color:var(--muted);font-size:.85rem;margin:.4rem 0 0}
+  .dsess .lnk{margin:.55rem .8rem 0 0;display:inline-block;font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent)}
+  .fuelcard{margin:1.3rem 0 0;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:.9rem 1.1rem}
+  .fuelcard .lab{font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700}
+  .fuelcard .big{font-size:1.15rem;font-weight:800;margin:.25rem 0 0;letter-spacing:-.02em}
+  .fuelcard .sub{color:var(--muted);font-size:.88rem;margin:.2rem 0 0}
+</style>
 <div class="wrap">
 <a class="back" href="index.html">&larr; guides</a>
-<p class="eyebrow">Coach &middot; today</p>
-<h1>Thursday</h1>
+<p class="eyebrow">Coach &middot; Wk2 RECOVERY (travel) — easy + sleep</p>
+<h1>Today</h1>
+<p class="lede">Thursday 23.7 — the whole day in one place: sessions in order (morning&rarr;evening), warm-up, fuel and recovery.</p>
 <div class="banner go"><h2>GO — train as planned</h2><p>Do the planned session. Fuel it and hit the cadence cue.</p></div>
-<p style="margin:.7rem 0 0;display:flex;gap:1.1rem;flex-wrap:wrap;font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase"><a href="day.html" style="color:var(--accent);text-decoration:none;font-weight:700">Full day &rarr;</a><a href="review.html" style="color:var(--accent);text-decoration:none">3-day review &rarr;</a><a href="travel-drills-core.html" style="color:var(--accent);text-decoration:none">Drills + core &rarr;</a></p>
-<div class="tiles"><div class="tile"><div class="k">Body Battery</div><div class="v">52</div><div class="s">peak · ≥60 = green for him</div></div><div class="tile"><div class="k">Sleep</div><div class="v">—</div><div class="s">score —</div></div><div class="tile"><div class="k">HRV</div><div class="v">—</div><div class="s">vs — weekly</div></div><div class="tile"><div class="k">Readiness</div><div class="v">—</div><div class="s">— · weighted low</div></div><div class="tile"><div class="k">Heat accl.</div><div class="v">0 %</div><div class="s">builds after ~5–10 hot days</div></div></div>
-<div class="sess"><span class="k">Today (~135 min)</span><div style="font-family:var(--mono);font-size:.72rem;color:var(--muted)">~135 min</div><ul style="margin:.2rem 0 0;padding-left:1.1rem;display:grid;gap:.2rem;font-size:.9rem"><li>Easy run 40 min — EASY only, before 09:00 <span style="color:var(--muted)">— NO tempo/strides today — hamstring flared on yesterday&#x27;s descent, let it settle; keep it FLAT (no hills/descents); effort by HR ≤165, not pace; warm-up is the go/no-go: hamstring tight → shorten to flat/easy or swap for more swim</span></li><li>Open-water swim 20–30 min easy</li><li>Evening: town walk / stairs 45–60 min</li><li>FIRST THING AM — owed core + drills 20 min (posterior-chain biased for the hamstring) <span style="color:var(--muted)">— several days overdue — do it before anything else while it&#x27;s a priority; hamstring/posterior chain: Copenhagen plank, single-leg RDL, glute bridge/hip thrust, slow hamstring curls (towel/band), calf raises; core: plank, side plank, dead bug; drills: A-skips/pogos if space + hamstring pain-free</span></li><li>Evening: legs up the wall 10 min + gentle stretch (Normatec stays home)</li></ul><span class="k" style="display:block;margin-top:.8rem">Tomorrow (Fri, ~0 min)</span><p class="mut">FULL REST — recharge</p></div>
-<div class="sess"><span class="k">Fuel</span><p>Eat today ~<b>2935 kcal</b> &middot; protein ≈1.8 g/kg<span class="mut" style="color:var(--muted)"> &middot; burn 7d avg 1160 active kcal</span></p></div>
-<div class="sess"><span class="k">This week — Wk2 RECOVERY (travel) — easy + sleep</span><ul style="margin:.5rem 0 0;padding-left:1.1rem;display:grid;gap:.35rem;font-size:.9rem"><li style="color:var(--muted)"><span style="font-family:var(--mono);font-size:.78rem">Mon 20.7</span> — Visiting a friend — rest by default, enjoy it</li><li style="color:var(--muted)"><span style="font-family:var(--mono);font-size:.78rem">Tue 21.7</span> — FULL REST — recharge</li><li style="color:var(--muted)"><span style="font-family:var(--mono);font-size:.78rem">Wed 22.7</span> — Morning: open-water swim 20–30 min easy · Evening: hill run ~45–55 min (GO day: sleep 86/10.9h, readiness 80) — effort by HR, not pace · Optional core 10–15 min (owed from weekend) — plank/side-plank/dead-bug/Copenhagen</li><li style="font-weight:700"><span style="font-family:var(--mono);font-size:.78rem">Thu 23.7</span> — Easy run 40 min — EASY only, before 09:00 · Open-water swim 20–30 min easy · Evening: town walk / stairs 45–60 min · FIRST THING AM — owed core + drills 20 min (posterior-chain biased for the hamstring)</li><li style="color:var(--muted)"><span style="font-family:var(--mono);font-size:.78rem">Fri 24.7</span> — FULL REST — recharge</li><li style="color:var(--muted)"><span style="font-family:var(--mono);font-size:.78rem">Sat 25.7</span> — Easy run 35–45 min before 09:00 ≤50% max pace (hamstring permitting) · GYM session 2 (indoor/AC) — same program, +1 set leg curl if pain-free, 50 min · Open-water swim 20–30 min easy OR evening walk</li><li style="color:var(--muted)"><span style="font-family:var(--mono);font-size:.78rem">Sun 26.7</span> — Easy run 45 min + OPTIONAL tempo — before 09:00 · Open-water swim 30 min easy · Evening: town walk / stairs 45 min · Core 15 min</li></ul></div>
-<p class="fresh">Data: 2026-07-23 &middot; built 2026-07-23 08:36 UTC &middot; refreshes after each data sync and plan change.</p>
-<p class="foot">Log your day by replying to the coach email — it flows back into this system. For a conversation, open the Claude app (it reads the same live data).</p>
+<div class="tiles"><div class="tile"><div class="k">Body Battery</div><div class="v">52</div><div class="s">peak · ≥60 = green</div></div><div class="tile"><div class="k">Sleep</div><div class="v">—</div><div class="s">score —</div></div><div class="tile"><div class="k">Readiness</div><div class="v">—</div><div class="s">—</div></div><div class="tile"><div class="k">HRV</div><div class="v">—</div><div class="s">vs — wk</div></div></div>
+<div class="day-list"><div class="dsess drills"><div class="kick"><span class="lab">Core + drills</span><span class="min">~20 min</span></div><h3>FIRST THING AM — owed core + drills 20 min (posterior-chain biased for the hamstring)</h3><ul><li>several days overdue — do it before anything else while it&#x27;s a priority</li><li>hamstring/posterior chain: Copenhagen plank, single-leg RDL, glute bridge/hip thrust, slow hamstring curls (towel/band), calf raises</li><li>core: plank, side plank, dead bug; drills: A-skips/pogos if space + hamstring pain-free</li></ul><div><a class="lnk" href="travel-drills-core.html">Visual move guide &rarr;</a></div></div><div class="dsess run"><div class="kick"><span class="lab">Run</span><span class="min">~40 min</span></div><h3>Easy run 40 min — EASY only, before 09:00</h3><ul><li>NO tempo/strides today — hamstring flared on yesterday&#x27;s descent, let it settle</li><li>keep it FLAT (no hills/descents); effort by HR ≤165, not pace</li><li>warm-up is the go/no-go: hamstring tight → shorten to flat/easy or swap for more swim</li></ul><p class="warmnote">Mandatory 8-min warm-up first — hamstring/Achilles/knee; it's your hamstring go/no-go.</p><div><a class="lnk" href="run-warmup.html">Warm-up guide &rarr;</a></div></div><div class="dsess walk"><div class="kick"><span class="lab">Swim</span><span class="min">~25 min</span></div><h3>Open-water swim 20–30 min easy</h3></div><div class="dsess walk"><div class="kick"><span class="lab">Walk</span><span class="min">~50 min</span></div><h3>Evening: town walk / stairs 45–60 min</h3></div><div class="dsess recovery"><div class="kick"><span class="lab">Recovery</span><span class="min"></span></div><h3>Evening: legs up the wall 10 min + gentle stretch (Normatec stays home)</h3></div></div>
+<div class="fuelcard"><div class="lab">Fuel</div><div class="big">Eat ~2935 kcal</div><div class="sub">protein ~136 g · water ~2.8 L · <a href="fuel.html" style="color:var(--accent)">meal timing &rarr;</a></div></div>
+<p class="fresh">Data: 2026-07-23 &middot; built 2026-07-23 08:36 UTC &middot; refreshes after each sync + plan change.</p>
+<p class="foot">Your whole day, generated from the plan + Garmin recovery (<code>build_program.py</code>), ordered morning&rarr;evening. Log how it felt by replying to the coach email.</p>
 </div>
 </body>
 </html>

@@ -96,6 +96,20 @@
   .foot{margin-top:2.6rem;border-top:1px solid var(--line);padding-top:1.3rem;
     color:var(--muted);font-size:.9rem;display:grid;gap:.5rem;max-width:70ch}
   .foot b{color:var(--ink)}
+
+  /* TODAY block — kept at the FRONT of this guide; update it whenever the
+     core+drills routine changes so the current session is always first. */
+  .todaybox{margin:1.6rem 0 .4rem;border:2px solid var(--accent);border-radius:16px;
+    background:color-mix(in srgb,var(--accent) 8%,var(--surface));padding:1rem 1.2rem}
+  .tb-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:.5rem .8rem;margin:0 0 .5rem}
+  .tb-tag{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+    font-weight:800;background:var(--accent);color:#1b1710;padding:.2rem .6rem;border-radius:7px}
+  .tb-sub{font-family:var(--mono);font-size:.72rem;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+  .tb-steps{margin:.2rem 0 0;padding-left:1.2rem;display:grid;gap:.55rem;font-size:.95rem}
+  .tb-steps a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--accent)}
+  .tb-steps a:hover{color:var(--accent)}
+  .tb-steps i{color:var(--muted);font-style:normal;font-size:.86rem}
+  .tb-note{margin:.7rem 0 0;color:var(--muted);font-size:.86rem}
 </style>
 
 <div style="max-width:1040px;margin:0 auto;padding:16px clamp(20px,4vw,44px) 0"><a href="index.html" style="font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#8a8a8a;text-decoration:none">&larr; All guides</a></div>
@@ -106,6 +120,23 @@
     Everything here needs only your <b>bands</b>, a <b>jump rope</b>, and <b>bodyweight</b>,
     so it all travels. Tap any move for a YouTube demo.</p>
 
+  <!-- TODAY: always the first thing on this page. Update on any routine change. -->
+  <section class="todaybox" aria-label="Today's session">
+    <div class="tb-head"><span class="tb-tag">Today · 20 min</span>
+      <span class="tb-sub">posterior-chain focus — hamstring repair</span></div>
+    <ol class="tb-steps">
+      <li><a href="#sec-drills"><b>Drills · 5 min</b></a> — skipping 2×60–90 s · A-skips 2×20 m ·
+        high-knee march 2×20 m <i>(light, pain-free)</i></li>
+      <li><a href="#sec-core"><b>Core · 7–8 min</b></a> — front plank 3×30–45 s ·
+        side plank 2×20–30 s/side · dead bug 2×8–10/side</li>
+      <li><a href="#sec-posterior"><b>Posterior chain · 7–8 min — priority</b></a> —
+        single-leg RDL 2×8–10/leg · hamstring curl 2×12–15/leg · calf raise 3×15–20 ·
+        Copenhagen 2×15–20 s/side</li>
+    </ol>
+    <p class="tb-note">Slow eccentrics, <b>pain-free range only</b> — this is the block that fixes
+      the descent hamstring. Full diagram for every move below.</p>
+  </section>
+
   <div class="legend">
     <span><i class="sw"></i> body position</span>
     <span><i class="sw g"></i> where you were</span>
@@ -113,7 +144,7 @@
     <span><i class="x">✕</i> avoid</span>
   </div>
 
-  <div class="section-h"><h2>Drills</h2><span class="t">5–8 min · every session</span></div>
+  <div class="section-h" id="sec-drills"><h2>Drills</h2><span class="t">5–8 min · every session</span></div>
   <div class="grid">
 
     <article class="card"><span class="num">01</span>
@@ -202,7 +233,7 @@
     </article>
   </div>
 
-  <div class="section-h"><h2>Core</h2><span class="t">8–12 min · every session</span></div>
+  <div class="section-h" id="sec-core"><h2>Core</h2><span class="t">8–12 min · every session</span></div>
   <div class="grid">
 
     <article class="card"><span class="num">05</span>
@@ -367,7 +398,7 @@
     </article>
   </div>
 
-  <div class="section-h"><h2>Posterior chain</h2><span class="t">hamstring + calf · priority now</span></div>
+  <div class="section-h" id="sec-posterior"><h2>Posterior chain</h2><span class="t">hamstring + calf · priority now</span></div>
   <p class="lede" style="margin:.2rem 0 1rem;font-size:.94rem">Your hamstring flags on
     the <b>downhills</b> — this is the tissue that fixes that. Eccentric (slow-lower) strength
     is what lets it take the descent. <b>Pain-free range only</b>; add these after the core.</p>

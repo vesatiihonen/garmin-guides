@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
-<title>Today — the whole day</title>
+<title>Check-in</title>
 </head>
 <body>
 <style>
@@ -100,34 +100,74 @@
   .fresh{font-family:var(--mono);font-size:.7rem;color:var(--muted);margin:.8rem 0 0}
 </style>
 <style>
-  .day-list{margin:1.3rem 0 0;display:grid;gap:12px}
-  .dsess{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--line);border-radius:14px;padding:.85rem 1.05rem}
-  .dsess.run,.dsess.quality{border-left-color:var(--accent)}
-  .dsess.drills,.dsess.strength{border-left-color:var(--good)}
-  .dsess.recovery,.dsess.rest{border-left-color:var(--danger)}
-  .dsess .kick{display:flex;justify-content:space-between;align-items:baseline;gap:.6rem}
-  .dsess .lab{font-family:var(--mono);font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:700}
-  .dsess .min{font-family:var(--mono);font-size:.66rem;color:var(--muted);white-space:nowrap}
-  .dsess h3{margin:.2rem 0 0;font-size:1.02rem;letter-spacing:-.01em}
-  .dsess ul{margin:.4rem 0 0;padding-left:1.05rem;display:grid;gap:.25rem;font-size:.9rem}
-  .dsess .warmnote{color:var(--muted);font-size:.85rem;margin:.4rem 0 0}
-  .dsess .lnk{margin:.55rem .8rem 0 0;display:inline-block;font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent)}
-  .fuelcard{margin:1.3rem 0 0;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:.9rem 1.1rem}
-  .fuelcard .lab{font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700}
-  .fuelcard .big{font-size:1.15rem;font-weight:800;margin:.25rem 0 0;letter-spacing:-.02em}
-  .fuelcard .sub{color:var(--muted);font-size:.88rem;margin:.2rem 0 0}
+  .cta{display:flex;flex-wrap:wrap;gap:10px;margin:1.3rem 0 0}
+  .btn{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--mono);font-size:.82rem;
+    letter-spacing:.02em;border-radius:11px;padding:.8rem 1.1rem;text-decoration:none;cursor:pointer;
+    border:1px solid var(--accent);background:var(--accent);color:#1b1710;font-weight:700}
+  .btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+  .hint{font-size:.78rem;color:var(--muted);margin:.5rem 0 0;max-width:60ch}
+  .form{margin:1.6rem 0 0;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.1rem 1.2rem}
+  .form h2{margin:0;font-size:1.15rem;letter-spacing:-.01em}
+  .fl{display:block;font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--muted);margin:1rem 0 .4rem}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{font:inherit;font-size:.9rem;border:1px solid var(--line);border-radius:999px;padding:.45rem .9rem;
+    background:transparent;color:var(--ink);cursor:pointer}
+  .chip[aria-pressed="true"]{background:var(--accent);color:#1b1710;border-color:var(--accent);font-weight:700}
+  input[type=number],textarea{width:100%;font:inherit;color:var(--ink);background:var(--bg);
+    border:1px solid var(--line);border-radius:10px;padding:.6rem .7rem}
+  textarea{min-height:80px;resize:vertical}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .priv{font-size:.72rem;color:var(--muted);margin:.9rem 0 0}
+  .ok{font-size:.8rem;color:var(--good);margin:.6rem 0 0;min-height:1em}
 </style>
 <div class="wrap">
 <a class="back" href="index.html">&larr; guides</a>
-<p class="eyebrow">Coach &middot; Wk3 Base build</p>
-<h1>Today</h1>
-<p class="lede">Thursday 30.7 — the whole day in one place: sessions in order (morning&rarr;evening), warm-up, fuel and recovery.</p>
-<div class="banner ease"><h2>EASE OFF — easy only</h2><p>Easy running only (≤165 bpm). Skip today&#x27;s quality/long and move it to a better day.</p></div>
-<div class="tiles"><div class="tile"><div class="k">Body Battery</div><div class="v">40</div><div class="s">peak · ≥60 = green</div></div><div class="tile"><div class="k">Sleep</div><div class="v">8.8 h</div><div class="s">score 58</div></div><div class="tile"><div class="k">Readiness</div><div class="v">37</div><div class="s">low</div></div><div class="tile"><div class="k">HRV</div><div class="v">30</div><div class="s">vs 38 wk</div></div></div>
-<div class="day-list"><div class="dsess run"><div class="kick"><span class="lab">Run</span><span class="min">~70 min</span></div><h3>Easy run 70 min — with an OPTIONAL tempo sharpener you gate BY FEEL (your call, not Garmin&#x27;s)</h3><ul><li>Recovery read is amber (Body Battery peaked 34, readiness 37 LOW) — but HRV rose to 30 and you slept 8.8 h. Your legs get the vote, not the label; warm up and decide.</li><li>Warm-up IS the go/no-go: 12–15 min easy + 8-min hamstring/Achilles/knee routine + 3–4 relaxed strides. Any hamstring/calf niggle → easy only, done.</li><li>GREEN (springy, breathing easy, hamstring silent): do the sharpener — 2–3 × 4–5 min at threshold FEEL (HR ~172–178, talk in short phrases), 2–3 min easy jog between, FLAT/soft ground. Finish IN CONTROL, not empty.</li><li>AMBER (heavy but no pain): skip the tempo, just 5–6 × 20 s relaxed strides to keep the legs sharp.</li><li>RED (niggle, HR won&#x27;t settle, dead): pure easy ≤160, cut it short — tomorrow is the real quality day.</li><li>Cap hard time ~12–15 min max so tomorrow&#x27;s track 12-8-4 stays the true session (keeps 48 h between real quality). Rest of the run easy ≤165.</li></ul><p class="warmnote">Mandatory 8-min warm-up first — hamstring/Achilles/knee; it's your hamstring go/no-go.</p><div><a class="lnk" href="run-warmup.html">Warm-up guide &rarr;</a></div></div><div class="dsess drills"><div class="kick"><span class="lab">Core + drills</span><span class="min">~28 min</span></div><h3>AFTER the run: Drills + core (home, full gym) 25–30 min — matches the Drills+Core guide 1-to-1</h3><ul><li>Order: drills → core → hips → posterior chain (your priority weakness) → mobility.</li><li>Drills 5 min: skipping rope, pogos/ankle hops, A-skips, high-knee march.</li><li>Core 8 min: front plank, side plank, dead bug, bird dog, glute bridge.</li><li>Hips: lateral band walks, clamshells, Copenhagen plank (knee on the bench).</li><li>Posterior chain (MODERATE today — controlled reps, not heavy PRs): single-leg RDL (light DB/KB), banded/slider hamstring curl, calf raise on the step.</li><li>Run first, drills after — don&#x27;t pre-fatigue the run.</li></ul><div><a class="lnk" href="travel-drills-core.html">Visual move guide &rarr;</a></div></div><div class="dsess walk"><div class="kick"><span class="lab">Walk</span><span class="min">~50 min</span></div><h3>OPTIONAL PM: easy rollerski (skate) 45–60 min — only if the run felt good and you skipped the tempo</h3><ul><li>primary aerobic-base modality now you&#x27;re home; ramp ski muscles gently after the layoff — easy, HR ≤150, technique over effort</li><li>one hard-ish stimulus per day max on amber recovery: if the run had the tempo in it, keep this easy or skip it</li></ul></div><div class="dsess recovery"><div class="kick"><span class="lab">Recovery</span><span class="min"></span></div><h3>Evening: Normatec + massage gun</h3></div></div>
-<div class="fuelcard"><div class="lab">Fuel</div><div class="big">Eat ~2445 kcal</div><div class="sub">protein ~150 g · water ~2.8 L · base-phase push · <a href="fuel.html" style="color:var(--accent)">meal timing &rarr;</a></div></div>
-<p class="fresh">Data: 2026-07-30 &middot; built 2026-07-30 11:12 UTC &middot; refreshes after each sync + plan change.</p>
-<p class="foot">Your whole day, generated from the plan + Garmin recovery (<code>build_program.py</code>), ordered morning&rarr;evening. Log how it felt by replying to the coach email.</p>
+<p class="eyebrow">Coach &middot; two-way</p>
+<h1>Check-in</h1>
+<p class="lede">Your latest Garmin recovery, plus a place to tell the coach how you actually feel — feeling, weight and notes flow straight back into the plan.</p>
+<div class="tiles"><div class="tile"><div class="k">Sleep</div><div class="v">8.8 h</div><div class="s">score 58</div></div><div class="tile"><div class="k">HRV</div><div class="v">30</div><div class="s">vs 38 wk</div></div><div class="tile"><div class="k">Body Battery</div><div class="v">40</div><div class="s">peak · ≥60 = green</div></div></div>
+<div class="cta"><a class="btn" href="https://github.com/vesatiihonen/garmin-coach-project/actions/workflows/fetch-garmin.yml" target="_blank" rel="noopener">&#8635; Update data</a></div>
+<p class="hint">Opens GitHub &rarr; tap <b>Run workflow</b>. That pulls the latest Garmin sleep / HRV / Body Battery, picks up your check-in email, and rebuilds this page (~2 min) — then reload. Sign in to GitHub on your phone once and it’s one tap after.</p>
+<div class="form">
+<h2>How do you feel?</h2>
+<span class="fl">Feeling</span>
+<div class="chips"><button type="button" class="chip" aria-pressed="false">Great</button><button type="button" class="chip" aria-pressed="false">Good</button><button type="button" class="chip" aria-pressed="false">OK</button><button type="button" class="chip" aria-pressed="false">Tired</button><button type="button" class="chip" aria-pressed="false">Wrecked</button></div>
+<div class="row"><div><span class="fl">Session RPE (0–10)</span><input id="rpe" type="number" min="0" max="10" step="1" inputmode="numeric" placeholder="—"></div><div><span class="fl">Weight (kg)</span><input id="wt" type="number" min="40" max="160" step="0.1" inputmode="decimal" placeholder="—"></div></div>
+<span class="fl">Notes for the coach</span>
+<textarea id="notes" placeholder="Niggles, how the run felt, sleep, life — anything."></textarea>
+<div class="cta"><button type="button" id="send" class="btn">&#9993; Send check-in</button></div>
+<p class="ok" id="ok"></p>
+<p class="priv">Opens your mail app with a pre-filled <code>LOG</code> email to yourself — the coach ingests it automatically within a few hours (or right away if you hit <b>Update</b>). Nothing here is posted publicly; your weight is never shown on this page.</p>
 </div>
+<p class="fresh">Data: 2026-07-30 &middot; built 2026-07-30 11:12 UTC &middot; refreshes after each sync + check-in.</p>
+<p class="foot">The two-way hub: Garmin in via <b>Update</b>, you in via <b>Send check-in</b>. Both land in the plan the coach reads next.</p>
+</div>
+<script>
+(function(){
+  var feeling='';
+  document.querySelectorAll('.chip').forEach(function(c){
+    c.addEventListener('click',function(){
+      document.querySelectorAll('.chip').forEach(function(x){x.setAttribute('aria-pressed','false');});
+      c.setAttribute('aria-pressed','true'); feeling=c.textContent.trim();
+    });
+  });
+  document.getElementById('send').addEventListener('click',function(){
+    var rpe=document.getElementById('rpe').value.trim();
+    var wt=document.getElementById('wt').value.trim();
+    var notes=document.getElementById('notes').value.trim();
+    var lines=[];
+    if(feeling)lines.push('Feeling: '+feeling);
+    if(rpe)lines.push('RPE: '+rpe);
+    if(wt)lines.push('Weight: '+wt+' kg');
+    if(notes)lines.push('',notes);
+    if(!lines.length){document.getElementById('ok').textContent='Add a feeling, weight or note first.';return;}
+    var addr='vesa.tiihonen'+'@'+'gmail.com';
+    var subj='LOG 2026-07-30';
+    document.getElementById('ok').textContent='Opening your mail app\u2026 send it and you\u2019re logged.';
+    window.location.href='mailto:'+addr+'?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(lines.join('\n'));
+  });
+})();
+</script>
 </body>
 </html>

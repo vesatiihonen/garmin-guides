@@ -2,8 +2,16 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="light dark">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#17150F">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Coach">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" href="icon-192.png">
 <title>Drills + Core</title>
 </head>
 <body>
@@ -86,11 +94,15 @@
   .cues li{margin:.15rem 0}
   .avoid{color:var(--danger);font-size:.86rem;margin:.6rem 0 .9rem;display:flex;gap:.4rem}
   .avoid b{font-weight:700}
-  .yt{margin-top:auto;display:inline-flex;align-items:center;gap:.5rem;
-    font-family:var(--mono);font-size:.76rem;color:var(--ink);text-decoration:none;
-    border:1px solid var(--line);border-radius:8px;padding:.5rem .7rem;background:transparent}
-  .yt:hover,.yt:focus-visible{border-color:var(--accent);color:var(--accent)}
-  .yt .tri{color:var(--danger)}
+  .yt{margin-top:auto;display:flex;flex-wrap:wrap;align-items:center;gap:.5rem .8rem}
+  .ytbtn{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--mono);font-size:.76rem;
+    color:var(--ink);cursor:pointer;border:1px solid var(--line);border-radius:8px;
+    padding:.5rem .7rem;background:transparent}
+  .ytbtn:hover,.ytbtn:focus-visible{border-color:var(--accent);color:var(--accent);outline:none}
+  .ytbtn .tri{color:var(--danger)}
+  .ytlink{font-family:var(--mono);font-size:.7rem;color:var(--muted);text-decoration:none}
+  .ytlink:hover,.ytlink:focus-visible{color:var(--accent)}
+  .ytframe{width:100%;margin-top:auto;aspect-ratio:16/9;border:0;border-radius:10px;display:block}
   a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 
   .foot{margin-top:2.6rem;border-top:1px solid var(--line);padding-top:1.3rem;
@@ -171,7 +183,7 @@
         <li>Quiet landings — barely hear yourself.</li>
         <li><b>Tight space (travel fallback):</b> low ceiling → do the "invisible rope" (same footwork, no rope); keep bounces low.</li></ul>
       <p class="avoid"><b>✕</b> squatting and jumping high off the knees</p>
-      <a class="yt" href="https://www.youtube.com/results?search_query=jump+rope+drill+for+runners" target="_blank" rel="noopener"><span class="tri">▶</span> "jump rope drill for runners"</a>
+      <div class="yt" data-yt="nMHfZ-yrFjA"><button type="button" class="ytbtn"><span class="tri">&#9654;</span> Watch demo</button><a class="ytlink" href="https://www.youtube.com/watch?v=nMHfZ-yrFjA" target="_blank" rel="noopener">on YouTube &#8599;</a></div>
     </article>
 
     <article class="card"><span class="num">02</span>
@@ -194,7 +206,7 @@
         <li>Off the ground fast, like hot pavement.</li>
         <li><b>Tight space (travel fallback):</b> keep them low + soft for the neighbours below (small, quick, quiet).</li></ul>
       <p class="avoid"><b>✕</b> bending the knees to absorb the landing</p>
-      <a class="yt" href="https://www.youtube.com/results?search_query=pogo+hops+running+plyometric+drill" target="_blank" rel="noopener"><span class="tri">▶</span> "pogo hops plyometric drill"</a>
+      <div class="yt" data-yt="jj-0qlVuM3w"><button type="button" class="ytbtn"><span class="tri">&#9654;</span> Watch demo</button><a class="ytlink" href="https://www.youtube.com/watch?v=jj-0qlVuM3w" target="_blank" rel="noopener">on YouTube &#8599;</a></div>
     </article>
 
     <article class="card"><span class="num">03</span>
@@ -216,7 +228,7 @@
         <li>Strike the ground under the hip, not out front.</li>
         <li><b>Tight space (travel fallback):</b> do them <b>on the spot</b> — drive the knee up, cycle the foot down under you, stay in place.</li></ul>
       <p class="avoid"><b>✕</b> leaning back to get the knee higher</p>
-      <a class="yt" href="https://www.youtube.com/results?search_query=A+skip+running+drill+technique" target="_blank" rel="noopener"><span class="tri">▶</span> "A-skip running drill technique"</a>
+      <div class="yt" data-yt="_MCDR-luwHU"><button type="button" class="ytbtn"><span class="tri">&#9654;</span> Watch demo</button><a class="ytlink" href="https://www.youtube.com/watch?v=_MCDR-luwHU" target="_blank" rel="noopener">on YouTube &#8599;</a></div>
     </article>
 
     <article class="card"><span class="num">04</span>
@@ -238,7 +250,7 @@
         <li>Tall spine, ribs stacked over hips.</li>
         <li><b>Tight space (travel fallback):</b> march tall <b>in place</b> — soft, quiet steps, no forward travel needed.</li></ul>
       <p class="avoid"><b>✕</b> rushing it into a jog</p>
-      <a class="yt" href="https://www.youtube.com/results?search_query=high+knee+march+running+drill" target="_blank" rel="noopener"><span class="tri">▶</span> "high-knee march drill"</a>
+      <div class="yt" data-yt="-aQbL65YHR0"><button type="button" class="ytbtn"><span class="tri">&#9654;</span> Watch demo</button><a class="ytlink" href="https://www.youtube.com/watch?v=-aQbL65YHR0" target="_blank" rel="noopener">on YouTube &#8599;</a></div>
     </article>
   </div>
 
@@ -261,7 +273,7 @@
       <ul class="cues"><li>Elbows under shoulders; squeeze glutes.</li>
         <li>Breathe normally — if you can't, shorten it.</li></ul>
       <p class="avoid"><b>✕</b> hips sagging (dashed) or piked up high</p>
-      <a class="yt" href="https://www.youtube.com/results?search_query=front+plank+proper+form" target="_blank" rel="noopener"><span class="tri">▶</span> "front plank proper form"</a>
+      <div class="yt" data-yt="mwlp75MS6Rg"><button type="button" class="ytbtn"><span class="tri">&#9654;</span> Watch demo</button><a class="ytlink" href="https://www.youtube.com/watch?v=mwlp75MS6Rg" target="_blank" rel="noopener">on YouTube &#8599;</a></div>
     </article>
 
     <article class="card"><span class="num">06</span>
@@ -279,7 +291,7 @@
       <ul class="cues"><li>Elbow under shoulder; push the bottom hip up.</li>
         <li>Top arm straight up, chest open.</li></ul>
       <p class="avoid"><b>✕</b> bottom hip drifting toward the ground</p>
-      <a class="yt" href="https://www.youtube.com/results?search_query=side+plank+proper+form" target="_blank" rel="noopener"><span class="tri">▶</span> "side plank proper form"</a>
+      <div class="yt" data-yt="44ND4bOB-T0"><button type="button" class="ytbtn"><span class="tri">&#9654;</span> Watch demo</button><a class="ytlink" href="https://www.youtube.com/watch?v=44ND4bOB-T0" target="_blank" rel="noopener">on YouTube &#8599;</a></div>
     </article>
 
     <article class="card"><span class="num">07</span>
@@ -299,7 +311,7 @@
       <ul class="cues"><li>Extend opposite arm + leg out low, then return.</li>
         <li>Exhale as you extend; low back stays flat.</li></ul>
       <p class="avoid"><b>✕</b> low back arching off the floor</p>
-      <a class="yt" href="https://www.youtube.com/results?search_query=dead+bug+exercise+proper+form" target="_blank" rel="noopener"><span class="tri">▶</span> "dead bug exercise form"</a>
+      <div class="yt" data-yt="bxn9FBrt4-A"><button type="button" class="ytbtn"><span class="tri">&#9654;</span> Watch demo</button><a class="ytlink" href="https://www.youtube.com/watch?v=bxn9FBrt4-A" target="_blank" rel="noopener">on YouTube &#8599;</a></div>
     </article>
 
     <article class="card"><span class="num">08</span>
@@ -319,7 +331,7 @@
       <ul class="cues"><li>Reach opposite arm + leg to horizontal, no higher.</li>
         <li>Hips square — glass of water on your back.</li></ul>
       <p class="avoid"><b>✕</b> twisting the hips open to lift the leg</p>
-      <a class="yt" href="https://www.youtube.com/results?search_query=bird+dog+exercise+proper+form" target="_blank" rel="noopener"><span class="tri">▶</span> "bird dog exercise form"</a>
+      <div class="yt" data-yt="ZdAHe9_HeEw"><button type="button" class="ytbtn"><span class="tri">&#9654;</span> Watch demo</button><a class="ytlink" href="https://www.youtube.com/watch?v=ZdAHe9_HeEw" target="_blank" rel="noopener">on YouTube &#8599;</a></div>
     </article>
 
     <article class="card"><span class="num">09</span>
@@ -337,7 +349,7 @@
       <ul class="cues"><li>Heels close to glutes; drive through the heels.</li>
         <li>Squeeze glutes at the top, hold 2 s.</li></ul>
       <p class="avoid"><b>✕</b> arching the lower back at the top</p>
-      <a class="yt" href="https://www.youtube.com/results?search_query=glute+bridge+exercise+form" target="_blank" rel="noopener"><span class="tri">▶</span> "glute bridge exercise form"</a>
+      <div class="yt" data-yt="Q_Bpj91Yiis"><button type="button" class="ytbtn"><span class="tri">&#9654;</span> Watch demo</button><a class="ytlink" href="https://www.youtube.com/watch?v=Q_Bpj91Yiis" target="_blank" rel="noopener">on YouTube &#8599;</a></div>
     </article>
   </div>
 
@@ -363,7 +375,7 @@
       <ul class="cues"><li>Athletic half-squat; stay low the whole set.</li>
         <li>Small controlled steps — keep band tension.</li></ul>
       <p class="avoid"><b>✕</b> standing tall and letting the knees cave</p>
-      <a class="yt" href="https://www.youtube.com/results?search_query=lateral+band+walk+glute+exercise" target="_blank" rel="noopener"><span class="tri">▶</span> "lateral band walk"</a>
+      <div class="yt" data-yt="y_bqFDQZSHQ"><button type="button" class="ytbtn"><span class="tri">&#9654;</span> Watch demo</button><a class="ytlink" href="https://www.youtube.com/watch?v=y_bqFDQZSHQ" target="_blank" rel="noopener">on YouTube &#8599;</a></div>
     </article>
 
     <article class="card"><span class="num">11</span>
@@ -383,7 +395,7 @@
       <ul class="cues"><li>Feet together, open the top knee like a clam.</li>
         <li>Keep hips stacked — don't roll back.</li></ul>
       <p class="avoid"><b>✕</b> rocking the hips back to open wider</p>
-      <a class="yt" href="https://www.youtube.com/results?search_query=clamshell+exercise+with+band" target="_blank" rel="noopener"><span class="tri">▶</span> "clamshell exercise with band"</a>
+      <div class="yt" data-yt="kO2Me7E83DQ"><button type="button" class="ytbtn"><span class="tri">&#9654;</span> Watch demo</button><a class="ytlink" href="https://www.youtube.com/watch?v=kO2Me7E83DQ" target="_blank" rel="noopener">on YouTube &#8599;</a></div>
     </article>
 
     <article class="card"><span class="num">12</span>
@@ -403,7 +415,7 @@
         <li>Squeeze the surface, lift hips to a straight line.</li>
         <li>Build <b>+5 s a week</b> — never rush this one.</li></ul>
       <p class="avoid"><b>✕</b> ankle (not knee) on the surface = groin strain</p>
-      <a class="yt" href="https://www.youtube.com/results?search_query=copenhagen+plank+adductor+exercise+beginner" target="_blank" rel="noopener"><span class="tri">▶</span> "copenhagen plank beginner"</a>
+      <div class="yt" data-yt="nhGK-DxiGBE"><button type="button" class="ytbtn"><span class="tri">&#9654;</span> Watch demo</button><a class="ytlink" href="https://www.youtube.com/watch?v=nhGK-DxiGBE" target="_blank" rel="noopener">on YouTube &#8599;</a></div>
     </article>
   </div>
 
@@ -430,7 +442,7 @@
         <li>Push the free heel to the wall behind you; hips stay square.</li>
         <li><b>Home:</b> hold a <b>DB / KB</b> for load once steady — keep it light today (moderate).</li></ul>
       <p class="avoid"><b>✕</b> rounding the back or twisting the hip open</p>
-      <a class="yt" href="https://www.youtube.com/results?search_query=single+leg+romanian+deadlift+form" target="_blank" rel="noopener"><span class="tri">▶</span> "single-leg RDL form"</a>
+      <div class="yt" data-yt="Zfr6wizR8rs"><button type="button" class="ytbtn"><span class="tri">&#9654;</span> Watch demo</button><a class="ytlink" href="https://www.youtube.com/watch?v=Zfr6wizR8rs" target="_blank" rel="noopener">on YouTube &#8599;</a></div>
     </article>
 
     <article class="card"><span class="num">14</span>
@@ -451,7 +463,7 @@
         <li>The <b>slow lower</b> is the point — that's what protects downhills.</li>
         <li>No band? Towel-slider bridge curls on a smooth floor.</li></ul>
       <p class="avoid"><b>✕</b> swinging the whole leg from the hip</p>
-      <a class="yt" href="https://www.youtube.com/results?search_query=standing+banded+hamstring+curl" target="_blank" rel="noopener"><span class="tri">▶</span> "banded hamstring curl"</a>
+      <div class="yt" data-yt="YNyZrCFkoH8"><button type="button" class="ytbtn"><span class="tri">&#9654;</span> Watch demo</button><a class="ytlink" href="https://www.youtube.com/watch?v=YNyZrCFkoH8" target="_blank" rel="noopener">on YouTube &#8599;</a></div>
     </article>
 
     <article class="card"><span class="num">15</span>
@@ -473,7 +485,7 @@
         <li>Do a set knee-straight and a set knee-bent (soleus) — both feed running.</li>
         <li><b>Home:</b> off the <b>step</b> for full range; single-leg, then hold a <b>DB</b> for load.</li></ul>
       <p class="avoid"><b>✕</b> bouncing at the bottom for reps</p>
-      <a class="yt" href="https://www.youtube.com/results?search_query=standing+calf+raise+for+runners" target="_blank" rel="noopener"><span class="tri">▶</span> "calf raise for runners"</a>
+      <div class="yt" data-yt="97NbelB5yvQ"><button type="button" class="ytbtn"><span class="tri">&#9654;</span> Watch demo</button><a class="ytlink" href="https://www.youtube.com/watch?v=97NbelB5yvQ" target="_blank" rel="noopener">on YouTube &#8599;</a></div>
     </article>
   </div>
 
@@ -484,6 +496,23 @@
       (DB/KB, step, bench) earns its keep. Add load gradually week to week; back it off on amber/low-recovery days.</p>
     <p><b>Safety:</b> adductors strain easily — any sharp groin or Achilles pain means stop the session, not push through it.</p>
   </div>
+
+<script>
+document.querySelectorAll('.yt[data-yt]').forEach(function(box){
+  var btn=box.querySelector('.ytbtn');
+  if(!btn)return;
+  btn.addEventListener('click',function(){
+    var f=document.createElement('iframe');
+    f.className='ytframe';
+    f.title='Exercise demo video';
+    f.setAttribute('allow','accelerometer;autoplay;encrypted-media;gyroscope;picture-in-picture;fullscreen');
+    f.setAttribute('allowfullscreen','');
+    f.setAttribute('loading','lazy');
+    f.src='https://www.youtube-nocookie.com/embed/'+box.getAttribute('data-yt')+'?autoplay=1&rel=0';
+    box.replaceChildren(f);
+  });
+});
+</script>
 </div>
 
 </body>

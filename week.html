@@ -12,7 +12,7 @@
 <meta name="apple-mobile-web-app-title" content="Coach">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="icon" href="icon-192.png">
-<title>Check-in</title>
+<title>Next 7 Days</title>
 </head>
 <body>
 <style>
@@ -90,92 +90,27 @@
   .foot{margin-top:2.4rem;border-top:1px solid var(--line);padding-top:1rem;color:var(--muted);font-size:.82rem;max-width:70ch}
 </style>
 <style>
-  .banner{margin:1.4rem 0 0;border-radius:14px;padding:1rem 1.2rem;border:1px solid var(--line)}
-  .banner.go{background:color-mix(in srgb,var(--good) 16%,transparent);border-color:var(--good)}
-  .banner.ease{background:color-mix(in srgb,var(--accent) 16%,transparent);border-color:var(--accent)}
-  .banner.rest,.banner.nodata{background:color-mix(in srgb,var(--danger) 14%,transparent);border-color:var(--danger)}
-  .banner h2{margin:0;font-size:1.25rem;letter-spacing:-.01em}
-  .banner p{margin:.35rem 0 0;color:var(--muted);font-size:.92rem}
-  .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin:1.2rem 0 0}
-  .tile{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:.7rem .9rem}
-  .tile .k{font-family:var(--mono);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
-  .tile .v{font-size:1.5rem;font-weight:800;letter-spacing:-.02em;margin:.15rem 0 0}
-  .tile .s{font-size:.74rem;color:var(--muted)}
-  .sess{margin:1.4rem 0 0;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1rem 1.2rem}
-  .sess .k{font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
-  .sess p{margin:.3rem 0 0}
-  .sess p.mut{color:var(--muted);font-size:.9rem}
-  .fresh{font-family:var(--mono);font-size:.7rem;color:var(--muted);margin:.8rem 0 0}
-</style>
-<style>
-  .cta{display:flex;flex-wrap:wrap;gap:10px;margin:1.3rem 0 0}
-  .btn{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--mono);font-size:.82rem;
-    letter-spacing:.02em;border-radius:11px;padding:.8rem 1.1rem;text-decoration:none;cursor:pointer;
-    border:1px solid var(--accent);background:var(--accent);color:#1b1710;font-weight:700}
-  .btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
-  .hint{font-size:.78rem;color:var(--muted);margin:.5rem 0 0;max-width:60ch}
-  .form{margin:1.6rem 0 0;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.1rem 1.2rem}
-  .form h2{margin:0;font-size:1.15rem;letter-spacing:-.01em}
-  .fl{display:block;font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;
-    color:var(--muted);margin:1rem 0 .4rem}
-  .chips{display:flex;flex-wrap:wrap;gap:8px}
-  .chip{font:inherit;font-size:.9rem;border:1px solid var(--line);border-radius:999px;padding:.45rem .9rem;
-    background:transparent;color:var(--ink);cursor:pointer}
-  .chip[aria-pressed="true"]{background:var(--accent);color:#1b1710;border-color:var(--accent);font-weight:700}
-  input[type=number],textarea{width:100%;font:inherit;color:var(--ink);background:var(--bg);
-    border:1px solid var(--line);border-radius:10px;padding:.6rem .7rem}
-  textarea{min-height:80px;resize:vertical}
-  .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-  .priv{font-size:.72rem;color:var(--muted);margin:.9rem 0 0}
-  .ok{font-size:.8rem;color:var(--good);margin:.6rem 0 0;min-height:1em}
+  .wk{display:grid;gap:12px;margin:1.3rem 0 0}
+  .wday{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:.85rem 1.05rem}
+  .wday.today{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 7%,var(--surface))}
+  .wday>header{display:flex;align-items:baseline;justify-content:space-between;gap:.6rem;margin:0 0 .5rem}
+  .wday h3{margin:0;font-size:1.05rem;letter-spacing:-.01em}
+  .wday h3 .rel{font-family:var(--mono);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--muted);margin-left:.5rem}
+  .wday.today h3 .rel{color:var(--accent)}
+  .wday .tot{font-family:var(--mono);font-size:.72rem;color:var(--muted);white-space:nowrap}
+  .wday ul{margin:0;padding-left:1.1rem;display:grid;gap:.32rem;font-size:.92rem}
+  .wday .mins{font-family:var(--mono);font-size:.72rem;color:var(--accent);margin-left:.2rem}
 </style>
 <div class="wrap">
 <a class="back" href="index.html">&larr; guides</a>
-<p class="eyebrow">Coach &middot; two-way</p>
-<h1>Check-in</h1>
-<p class="lede">Your latest Garmin recovery, plus a place to tell the coach how you actually feel — feeling, weight and notes flow straight back into the plan.</p>
-<div class="tiles"><div class="tile"><div class="k">Sleep</div><div class="v">8.8 h</div><div class="s">score 58</div></div><div class="tile"><div class="k">HRV</div><div class="v">30</div><div class="s">vs 38 wk</div></div><div class="tile"><div class="k">Body Battery</div><div class="v">54</div><div class="s">peak · ≥60 = green</div></div></div>
-<div class="cta"><a class="btn" href="https://github.com/vesatiihonen/garmin-coach-project/actions/workflows/fetch-garmin.yml" target="_blank" rel="noopener">&#8635; Update data</a></div>
-<p class="hint">Opens GitHub &rarr; tap <b>Run workflow</b>. That pulls the latest Garmin sleep / HRV / Body Battery, picks up your check-in email, and rebuilds this page (~2 min) — then reload. Sign in to GitHub on your phone once and it’s one tap after.</p>
-<div class="form">
-<h2>How do you feel?</h2>
-<span class="fl">Feeling</span>
-<div class="chips"><button type="button" class="chip" aria-pressed="false">Great</button><button type="button" class="chip" aria-pressed="false">Good</button><button type="button" class="chip" aria-pressed="false">OK</button><button type="button" class="chip" aria-pressed="false">Tired</button><button type="button" class="chip" aria-pressed="false">Wrecked</button></div>
-<div class="row"><div><span class="fl">Session RPE (0–10)</span><input id="rpe" type="number" min="0" max="10" step="1" inputmode="numeric" placeholder="—"></div><div><span class="fl">Weight (kg)</span><input id="wt" type="number" min="40" max="160" step="0.1" inputmode="decimal" placeholder="—"></div></div>
-<span class="fl">Notes for the coach</span>
-<textarea id="notes" placeholder="Niggles, how the run felt, sleep, life — anything."></textarea>
-<div class="cta"><button type="button" id="send" class="btn">&#9993; Send check-in</button></div>
-<p class="ok" id="ok"></p>
-<p class="priv">Opens your mail app with a pre-filled <code>LOG</code> email to yourself — the coach ingests it automatically within a few hours (or right away if you hit <b>Update</b>). Nothing here is posted publicly; your weight is never shown on this page.</p>
+<p class="eyebrow">Coach &middot; Wk3 Base build</p>
+<h1>Next 7 Days</h1>
+<p class="lede">A rolling week ahead — today plus the next six days, each with its sessions and total minutes, so you can plan your calendar. Rebuilds every sync and plan change.</p>
+<div class="wk"><article class="wday today"><header><h3>Thu 30.7<span class="rel">Today</span></h3><span class="tot">~130 min</span></header><ul><li>Easy run 70 min — with an OPTIONAL tempo sharpener you gate BY FEEL (your call, not Garmin&#x27;s) <span class="mins">70m</span></li><li>Rest of the day: low-aerobic NEAT only — cut the grass, walk, potter. ONE training session today (the run) to protect sleep. <span class="mins">60m</span></li><li>Evening: Normatec + massage gun</li></ul></article><article class="wday"><header><h3>Fri 31.7<span class="rel">Tomorrow</span></h3><span class="tot">~70 min</span></header><ul><li>EASY recovery — track quality DEFERRED (Thu became a real tempo + hamstring flared + bad sleep) <span class="mins">45m</span></li><li>Gentle posterior-chain + STABILITY (moved from Thu) — pain-free, no heavy eccentrics while sore <span class="mins">25m</span></li><li>Evening: Normatec + massage gun</li></ul></article><article class="wday"><header><h3>Sat 1.8<span class="rel">+2 days</span></h3><span class="tot">~163 min</span></header><ul><li>Long run 20–27 km (~2:00–2:30) <span class="mins">135m</span></li><li>Drills + core 25–30 min <span class="mins">28m</span></li><li>Evening: Normatec + massage gun</li></ul></article><article class="wday"><header><h3>Sun 2.8<span class="rel">+3 days</span></h3><span class="tot">~150 min</span></header><ul><li>LONG rollerski 2:30+ easy (skate) — the weekly aerobic anchor <span class="mins">150m</span></li><li>Evening: Normatec + massage gun</li></ul></article><article class="wday"><header><h3>Mon 3.8<span class="rel">+4 days</span></h3><span class="tot">~98 min</span></header><ul><li>Easy run 60–75 min <span class="mins">70m</span></li><li>Drills + core 25–30 min <span class="mins">28m</span></li><li>Evening: Normatec + massage gun</li></ul></article><article class="wday"><header><h3>Tue 4.8<span class="rel">+5 days</span></h3><span class="tot">~108 min</span></header><ul><li>80 min VO2max track A <span class="mins">80m</span></li><li>Drills + core 25–30 min <span class="mins">28m</span></li><li>Evening: Normatec + massage gun</li></ul></article><article class="wday"><header><h3>Wed 5.8<span class="rel">+6 days</span></h3><span class="tot">~115 min</span></header><ul><li>Easy run 75–90 min ≤165 bpm <span class="mins">85m</span></li><li>PM: strength micro 30 min <span class="mins">30m</span></li><li>Evening: Normatec + massage gun</li></ul></article></div>
+<p style="margin:1.2rem 0 0;font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase"><a href="day.html" style="color:var(--accent);text-decoration:none;font-weight:700">Today in full &rarr;</a> &middot; <a href="program.html" style="color:var(--accent);text-decoration:none">Full 9-week plan &rarr;</a></p>
+<p class="fresh">Built 2026-07-30 16:36 UTC &middot; refreshes after each sync + plan change.</p>
+<p class="foot">Planned sessions from the coach plan + your overrides. Adjust a day from the GitHub app (data/plan_overrides.json) and this updates automatically.</p>
 </div>
-<p class="fresh">Data: 2026-07-30 &middot; built 2026-07-30 16:36 UTC &middot; refreshes after each sync + check-in.</p>
-<p class="foot">The two-way hub: Garmin in via <b>Update</b>, you in via <b>Send check-in</b>. Both land in the plan the coach reads next.</p>
-</div>
-<script>
-(function(){
-  var feeling='';
-  document.querySelectorAll('.chip').forEach(function(c){
-    c.addEventListener('click',function(){
-      document.querySelectorAll('.chip').forEach(function(x){x.setAttribute('aria-pressed','false');});
-      c.setAttribute('aria-pressed','true'); feeling=c.textContent.trim();
-    });
-  });
-  document.getElementById('send').addEventListener('click',function(){
-    var rpe=document.getElementById('rpe').value.trim();
-    var wt=document.getElementById('wt').value.trim();
-    var notes=document.getElementById('notes').value.trim();
-    var lines=[];
-    if(feeling)lines.push('Feeling: '+feeling);
-    if(rpe)lines.push('RPE: '+rpe);
-    if(wt)lines.push('Weight: '+wt+' kg');
-    if(notes)lines.push('',notes);
-    if(!lines.length){document.getElementById('ok').textContent='Add a feeling, weight or note first.';return;}
-    var addr='vesa.tiihonen'+'@'+'gmail.com';
-    var subj='LOG 2026-07-30';
-    document.getElementById('ok').textContent='Opening your mail app\u2026 send it and you\u2019re logged.';
-    window.location.href='mailto:'+addr+'?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(lines.join('\n'));
-  });
-})();
-</script>
 </body>
 </html>

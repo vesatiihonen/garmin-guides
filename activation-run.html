@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#17150F">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Coach">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" href="icon-192.png">
+<title>Morning Activation Run</title>
+</head>
+<body>
+<style>
+  :root{--bg:#F7F4EE;--surface:#FFFFFF;--ink:#2A2723;--muted:#6E685E;--ghost:#C4BDB0;
+    --accent:#D9990F;--accent-soft:#F3E4C4;--danger:#C6503F;--good:#4F7A3A;--line:#E7E1D6;--num:#B9B1A2;
+    --sans:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;--mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;}
+  @media (prefers-color-scheme:dark){:root{--bg:#17150F;--surface:#201D16;--ink:#F1EBDE;--muted:#A79F90;
+    --ghost:#5A5344;--accent:#F0B534;--accent-soft:#3A3320;--danger:#E37A6A;--good:#8FBF6E;--line:#322E24;--num:#5C5547;}}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.5;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:720px;margin:0 auto;padding:clamp(20px,4vw,44px)}
+  h1{font-size:clamp(2rem,7vw,2.8rem);line-height:.98;letter-spacing:-.02em;font-weight:800;text-transform:uppercase;margin:0 0 .5rem}
+  .lede{color:var(--muted);margin:.8rem 0 1.2rem;font-size:1rem}
+  .step{margin:1.6rem 0 0;padding:1rem;background:var(--surface);border:1px solid var(--line);border-radius:12px}
+  .step h3{margin:0 0 .5rem;font-size:1.1rem;color:var(--ink);display:flex;align-items:center;gap:.5rem}
+  .step h3 .num{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;
+    border-radius:50%;background:var(--accent);color:#1b1710;font-weight:800;font-size:.9rem;flex-shrink:0}
+  .step .time{font-family:var(--mono);font-size:.8rem;color:var(--muted);margin-bottom:.8rem}
+  .step p{margin:0}
+  .step ol{margin:.6rem 0 0;padding-left:1.3rem;font-size:.9rem}
+  .step li{margin:.4rem 0}
+  .gate{margin:1.6rem 0 0;padding:1rem;border-left:4px solid var(--danger);background:color-mix(in srgb,var(--danger) 12%,transparent);
+    border-radius:0 8px 8px 0;font-size:.9rem}
+  .gate b{color:var(--ink);font-weight:700}
+  .gate .status{display:flex;flex-wrap:wrap;gap:1rem;margin:.6rem 0 0}
+  .gate .go{color:var(--good);font-weight:700}
+  .gate .wait{color:var(--accent);font-weight:700}
+  .gate .stop{color:var(--danger);font-weight:700}
+  .target{margin:1.6rem 0 0;padding:1rem;background:color-mix(in srgb,var(--accent) 12%,transparent);
+    border-left:4px solid var(--accent);border-radius:0 8px 8px 0;font-size:.9rem}
+  .target b{color:var(--ink)}
+  .clock{font-family:var(--mono);font-size:1.1rem;color:var(--accent);font-weight:700}
+  .cal{color:var(--muted);font-size:.75rem;margin:.3rem 0 0}
+</style>
+
+<div style="max-width:1040px;margin:0 auto;padding:16px clamp(20px,4vw,44px) 0"><a href="index.html" style="font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#8a8a8a;text-decoration:none">&larr; All guides</a></div>
+<div class="wrap">
+  <h1>Morning Activation Run</h1>
+  <p class="lede">20-minute door-to-door session at 07:30 AM (Mon–Fri). Purpose: weight loss (75→70 kg), ankle strength, sleep rhythm.</p>
+
+  <div class="gate">
+    <b>⏰ Gate: Hamstring Test (Mandatory)</b>
+    <p style="margin:.3rem 0 0">Before field work, do a 1 min easy jog in place at home. Your call:</p>
+    <div class="status">
+      <div><span class="go">✓ GREEN</span> Tight but pain-free → proceed with full circuit</div>
+    </div>
+    <div class="status">
+      <div><span class="wait">△ AMBER</span> Sharp pain or very stiff → skip plyos, just walk</div>
+    </div>
+    <div class="status">
+      <div><span class="stop">✗ RED</span> Can't jog at all → rest day, walk only</div>
+    </div>
+  </div>
+
+  <div class="step">
+    <h3><span class="num">1</span> Pre-Field (Home)</h3>
+    <div class="time">1–2 min · Right after waking</div>
+    <p><b>Ankle Activation:</b> Tib Bar dorsiflexion 15–20 reps (pull toes toward shins against resistance).</p>
+    <p style="margin:.5rem 0 0"><b>Hydration:</b> Drink 200 ml water before heading out.</p>
+  </div>
+
+  <div class="step">
+    <h3><span class="num">2</span> Walk to Field</h3>
+    <div class="time">~3 min</div>
+    <p>Easy pace. Your eyes open, body waking up.</p>
+  </div>
+
+  <div class="step">
+    <h3><span class="num">3</span> Field Warm-Up</h3>
+    <div class="time">2 min</div>
+    <p><b>Easy jog 1 lap</b> around the grass field (~400m). Get HR to ~110–120 bpm.</p>
+  </div>
+
+  <div class="step">
+    <h3><span class="num">4</span> Main Circuit</h3>
+    <div class="time">10 min (2 rounds × 5 min each)</div>
+    <p style="margin:0"><b>Round 1 + Round 2, same moves:</b></p>
+    <ol style="margin:.5rem 0 0">
+      <li><b>Jump rope:</b> 1 min continuous (calf + ankle power)</li>
+      <li><b>High knees / A-skips:</b> 30 sec (footwork, ankle coordination)</li>
+      <li><b>Single-leg hops:</b> 30 sec per leg (60 sec total — balance + power)</li>
+      <li><b>Glute bridges:</b> 20 sec (hamstring-safe, butt activation)</li>
+      <li><b>Single-leg balance on grass:</b> 20 sec per leg (proprioception — eyes open)</li>
+      <li><b>Easy jog around field:</b> 1 min (active recovery between rounds)</li>
+    </ol>
+    <p style="margin:.6rem 0 0;color:var(--muted);font-size:.85rem"><i>Tip: Grass is forgiving on joints. Move fast but controlled — explosiveness > volume.</i></p>
+  </div>
+
+  <div class="step">
+    <h3><span class="num">5</span> Cool-Down</h3>
+    <div class="time">1–2 min · On the field</div>
+    <ol>
+      <li>Walk a lap, catch your breath.</li>
+      <li>Light hamstring stretch (fold forward, touch toes, 30 sec).</li>
+    </ol>
+  </div>
+
+  <div class="step">
+    <h3><span class="num">6</span> Walk Home</h3>
+    <div class="time">~3–5 min</div>
+    <p>Easy pace. Elevate heart rate on the way back slightly to sustain the conditioning.</p>
+  </div>
+
+  <div class="target">
+    <b>✓ Session Complete</b>
+    <p style="margin:.4rem 0 0">You've burned ~250–300 kcal and activated every joint for the day. This is pure weight-loss + resilience work, not recovery. If legs feel heavy at the end → that's the signal tomorrow's running will feel snappier.</p>
+    <p style="margin:.4rem 0 0"><b>Hydration after:</b> Drink 300–400 ml water in the hour after you get home. Electrolytes if sweaty.</p>
+  </div>
+
+  <p style="margin:2rem 0 0;padding:1rem;background:var(--surface);border:1px solid var(--line);border-radius:10px;color:var(--muted);font-size:.85rem">
+    <b>Consistency is the goal:</b> 07:30 AM start (Mon–Fri) = sleep rhythm anchor + 5× week = ~1200 kcal/week burned toward your 75→70 kg goal. Workouts will shift around training, but the activation stays the same.
+  </p>
+
+<p style="margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--muted);font-family:ui-monospace;font-size:.72rem;color:var(--muted)">Last updated 09-08-26</p>
+</div>
+</body>
+</html>
